@@ -1,5 +1,5 @@
 EXT="tar.xz"
-ARR_TAR=( $(ls *".${tar.xz}") )
+ARR_TAR=( $(ls *".${EXT}") )
 
 
 for gridpack in ${ARR_TAR[@]};do
