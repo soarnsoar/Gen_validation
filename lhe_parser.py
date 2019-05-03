@@ -6,7 +6,9 @@
 import copy
 import numpy
 import math
+import glob
 
+import os
 
 class event:
 
@@ -122,7 +124,7 @@ class parser:
                     #print "@thisevent.PARTICLE_LIST[0].IDUP in ptl box = "+str(thisevent.PARTICLE_LIST[0].IDUP)
          
 
-
+        f.close()
 def check_MH(my_event):
     MH_list=[]
     for ptl in my_event.PARTICLE_LIST:
@@ -135,7 +137,7 @@ def check_MH(my_event):
     return MH_list        
 
 
-def print_HM(my_file):
+def cal_MH(my_file):
     analyzer=parser(my_file)
     analyzer.parse_file()
     events = analyzer.EVENT_LIST
@@ -147,11 +149,51 @@ def print_HM(my_file):
         MH_list+=check_MH(evt)
 
     #print MH_list
-    print "<MH>="+str(numpy.mean(MH_list))
-    print "d<MH>="+str(numpy.std(MH_list)/math.sqrt(len((MH_list))))
+    #print "<MH>="+str(numpy.mean(MH_list))
+    #print "d<MH>="+str(numpy.std(MH_list)/math.sqrt(len((MH_list))))
+    dic={'MH':numpy.mean(MH_list), \
+         'dMH':numpy.std(MH_list)/math.sqrt(len((MH_list))) \
+     }
+    return dic
+def get_MH_powheg_card(cardpath):
+    f = open(cardpath,'r')
+    lines=f.readlines()
+    hmass=0
+    for line in lines: 
+        line=line.lstrip()
+        if len(line) == 0:
+            continue
 
+        #====MH====#
+        if "hmass" in line.split()[0]:
 
+            hmass_fort=line.split()[1]
+            hmass = float(hmass_fort.replace("d","E"))
+            
+            break
+    #print "hmass="+str(hmass)
+    f.close()
+    return hmass
 
 if __name__=="__main__" :
-    
-    print_HM("cmsgrid_final.lhe")
+    dirlist=glob.glob("test_*")
+    #print str(dirlist)
+    for mydir in dirlist:
+
+        if not os.path.isdir(str(mydir)):
+            continue
+        
+
+        #print "---"+mydir+"----"
+        #os.system("cat "+mydir+"/powheg.input | grep hmass")
+        MH_set=get_MH_powheg_card(mydir+"/powheg.input")
+        #print_MH(mydir+"/cmsgrid_final.lhe")
+        MH_cal=cal_MH(mydir+"/cmsgrid_final.lhe")
+        if abs(MH_set-MH_cal["MH"]) > 2*MH_cal["dMH"]:
+            print "\n"
+            print "------------"
+            print mydir
+            print "@MH_set="+str(MH_set)
+            print '@MH_cal["MH]='+str(MH_cal["MH"])
+            print '@MH_cal["dMH"]='+str(MH_cal["dMH"])
+    #print_HM("cmsgrid_final.lhe")
