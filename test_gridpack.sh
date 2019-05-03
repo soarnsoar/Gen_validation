@@ -1,9 +1,10 @@
-ARR_TAR=( $(ls *.tar.xz) )
+EXT="tar.xz"
+ARR_TAR=( $(ls *".${tar.xz}") )
 
 
 for gridpack in ${ARR_TAR[@]};do
     echo "@@TEST "${gridpack}"@@"
-    TESTDIR=test_${gridpack%".tar.xz"}
+    TESTDIR=test_${gridpack%".${EXT}"}
     mkdir -p ${TESTDIR}
     pushd $TESTDIR
     tar -xf ../${gridpack}
