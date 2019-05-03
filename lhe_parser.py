@@ -4,7 +4,8 @@
 
 
 import copy
-
+import numpy
+import math
 
 
 class event:
@@ -85,13 +86,13 @@ class parser:
                     thisevent=event()
                     info=line.split()
         
-                    thisevent.NUP=info[0]
+                    thisevent.NUP=float(info[0])
                     Nparticle=thisevent.NUP
-                    thisevent.IDPRUP=info[1]
-                    thisevent.XWGTUP=info[2]
-                    thisevent.SCALUP=info[3]
-                    thisevent.AQEDUP=info[4]
-                    thisevent.AQCDUP=info[5]
+                    thisevent.IDPRUP=float(info[1])
+                    thisevent.XWGTUP=float(info[2])
+                    thisevent.SCALUP=float(info[3])
+                    thisevent.AQEDUP=float(info[4])
+                    thisevent.AQCDUP=float(info[5])
                     #print "@thisevent.NUP in info box="+str(thisevent.NUP)
                     iline+=1
                 else:
@@ -100,19 +101,19 @@ class parser:
                     info=line.split()
                     
                     thisptl=particle()
-                    thisptl.IDUP=info[0]
-                    thisptl.ISTUP=info[1]
-                    thisptl.MOTHUP1=info[2]
-                    thisptl.MOTHUP2=info[3]
-                    thisptl.ICOLUP1=info[4]
-                    thisptl.ICOLUP2=info[5]
-                    thisptl.PUP1=info[6]
-                    thisptl.PUP2=info[7]
-                    thisptl.PUP3=info[8]
-                    thisptl.PUP4=info[9]
-                    thisptl.PUP5=info[10]
-                    thisptl.VTIMUP=info[11]
-                    thisptl.SPINUP=info[12]
+                    thisptl.IDUP=float(info[0])
+                    thisptl.ISTUP=float(info[1])
+                    thisptl.MOTHUP1=float(info[2])
+                    thisptl.MOTHUP2=float(info[3])
+                    thisptl.ICOLUP1=float(info[4])
+                    thisptl.ICOLUP2=float(info[5])
+                    thisptl.PUP1=float(info[6])
+                    thisptl.PUP2=float(info[7])
+                    thisptl.PUP3=float(info[8])
+                    thisptl.PUP4=float(info[9])
+                    thisptl.PUP5=float(info[10])
+                    thisptl.VTIMUP=float(info[11])
+                    thisptl.SPINUP=float(info[12])
                     #print "thisptl.IDUP="+str(thisptl.IDUP)
                     iline+=1
                     
@@ -124,20 +125,33 @@ class parser:
 
 def check_MH(my_event):
     MH_list=[]
-    for ptl in evt.PARTICLE_LIST:
+    for ptl in my_event.PARTICLE_LIST:
         pid=ptl.IDUP
+        #print "idx="+str(evt.PARTICLE_LIST.index(ptl))+"pid="+str(ptl.IDUP)+" status="+str(ptl.ISTUP)
         if pid == 25 : ##Higgs boson
+            #print "HIGGS"
             MH_list.append(ptl.PUP5)
             
     return MH_list        
-           
-if __name__=="__main__":
-    analyzer=parser("cmsgrid_final.lhe")
+
+
+def print_HM(my_file):
+    analyzer=parser(my_file)
     analyzer.parse_file()
     events = analyzer.EVENT_LIST
+    MH_list=[]
     for evt in events:
-        print "------"+str(events.index(evt))+"-----"
+        #print "------"+str(events.index(evt))+"-----"                                                                                                                                       
         #for ptl in evt.PARTICLE_LIST:
-            #print "idx="+str(evt.PARTICLE_LIST.index(ptl))+"pid="+str(ptl.IDUP)+" status="+str(ptl.ISTUP)
+        #print "idx="+str(evt.PARTICLE_LIST.index(ptl))+"pid="+str(ptl.IDUP)+" status="+str(ptl.ISTUP)                                                                                     
+        MH_list+=check_MH(evt)
+
+    #print MH_list
+    print "<MH>="+str(numpy.mean(MH_list))
+    print "d<MH>="+str(numpy.std(MH_list)/math.sqrt(len((MH_list))))
 
 
+
+if __name__=="__main__" :
+    
+    print_HM("cmsgrid_final.lhe")
