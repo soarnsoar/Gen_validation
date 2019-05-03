@@ -5,7 +5,7 @@
 
 import copy
 import numpy
-import math
+from math import sqrt
 import glob
 
 import os
@@ -135,8 +135,26 @@ def check_MH(my_event):
             MH_list.append(ptl.PUP5)
             
     return MH_list        
+def check_HWW_nlep(my_file):
+    analyzer=parser(my_file)
+    analyzer.parse_file()
+    my_event = analyzer.EVENT_LIST[0]
 
+    n_flep=0
+    n_fparton=0
+    for ptl in my_event.PARTICLE_LIST:
+        pid=ptl.IDUP
+        status=ptl.ISTUP
+        if status==1: ##final particle
+            if abs(pid) in [11,13,15]:
+                n_flep+=1
+            elif abs(pid) in [1,2,3,4,5,6,21]:
+                n_fparton+=1
 
+    #dic={'nlep':n_flep,\
+    #     'nparton':n_fparton,\
+    # }
+    return n_flep
 def cal_MH(my_file):
     analyzer=parser(my_file)
     analyzer.parse_file()
@@ -152,9 +170,13 @@ def cal_MH(my_file):
     #print "<MH>="+str(numpy.mean(MH_list))
     #print "d<MH>="+str(numpy.std(MH_list)/math.sqrt(len((MH_list))))
     dic={'MH':numpy.mean(MH_list), \
-         'dMH':numpy.std(MH_list)/math.sqrt(len((MH_list))) \
+         'dMH':numpy.std(MH_list)/sqrt(len((MH_list))) \
      }
+    
+    
     return dic
+    
+
 def get_MH_powheg_card(cardpath):
     f = open(cardpath,'r')
     lines=f.readlines()
@@ -168,12 +190,23 @@ def get_MH_powheg_card(cardpath):
         if "hmass" in line.split()[0]:
 
             hmass_fort=line.split()[1]
-            hmass = float(hmass_fort.replace("d","E"))
+            hmass = hmass_fort.replace("d","E")
+            hmass = float(hmass.replace("D","E"))
             
-            break
+
+        elif "hwidth" in line.split()[0]:
+            hwidth_fort=line.split()[1]
+            hwidth=hwidth_fort.replace("D","E")
+            hwidth=float(hwidth.replace("d","E"))
     #print "hmass="+str(hmass)
     f.close()
-    return hmass
+    dic={
+        'hmass':hmass,\
+        'hwidth':hwidth,\
+    }
+    return dic
+
+
 
 if __name__=="__main__" :
     dirlist=glob.glob("test_*")
@@ -188,12 +221,31 @@ if __name__=="__main__" :
         #os.system("cat "+mydir+"/powheg.input | grep hmass")
         MH_set=get_MH_powheg_card(mydir+"/powheg.input")
         #print_MH(mydir+"/cmsgrid_final.lhe")
+
         MH_cal=cal_MH(mydir+"/cmsgrid_final.lhe")
-        if abs(MH_set-MH_cal["MH"]) > 2*MH_cal["dMH"]:
+        nlep=check_HWW_nlep(mydir+"/cmsgrid_final.lhe")
+        ch=-1 ##channel, 0=hadronic 1=semilep 2=leptonic
+        if ("lnuqq") in mydir.lower() : ch=1
+        elif ("2l2nu") in mydir.lower() : ch=2
+        
+        hmass=MH_set['hmass']
+        MH=MH_cal["MH"]
+        hwidth=MH_set['hwidth']
+        dMH=MH_cal["dMH"]
+        sigma=sqrt( hwidth**2 + dMH**2     )
+        
+        if abs(MH-hmass) > 2*sigma:
             print "\n"
             print "------------"
             print mydir
-            print "@MH_set="+str(MH_set)
-            print '@MH_cal["MH]='+str(MH_cal["MH"])
-            print '@MH_cal["dMH"]='+str(MH_cal["dMH"])
+            print "@MH_set['hmass']="+str(hmass)
+            print "@MH_set['hwidth']="+str(hwidth)
+            print '@MH_cal["MH"]='+str(MH)
+            print '@MH_cal["dMH"]='+str(dMH)
+        if not  nlep==ch:
+            print "------------"
+            print mydir
+            print "!!!!!!channel not matched!!!!!"
+            print "nlep in 1st event="+str(nlep)
+            print "nlep from samplename="+str(ch)
     #print_HM("cmsgrid_final.lhe")
