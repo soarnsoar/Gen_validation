@@ -125,7 +125,8 @@ function submit_batch(){
     cp ../run_template.sh run_$JOB.sh
     
     find . -name run_$JOB.sh | xargs perl -pi -e s/__SCRIPT__/$PYTHON/g
-    condor_submit submit.jds > submit_id.txt
+    condor_submit submit.jds &> submit_id.txt
+    cat submit_id.txt
     popd
 }
 
