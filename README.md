@@ -1,2 +1,2 @@
-# MG_Gen_validation
-MG vaildation
+# Gen_validation
+Gen vaildation
