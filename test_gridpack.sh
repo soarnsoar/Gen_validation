@@ -3,7 +3,7 @@ ARR_TAR=( $(ls *.tar.xz) )
 
 for gridpack in ${ARR_TAR[@]};do
     echo "@@TEST "${gridpack}"@@"
-    TESTDIR=test_${gridpack}
+    TESTDIR=test_${gridpack%".tar.xz"}
     mkdir -p ${TESTDIR}
     pushd $TESTDIR
     tar -xf ../${gridpack}
