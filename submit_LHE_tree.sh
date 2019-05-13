@@ -19,6 +19,7 @@ echo 'cd ../../'>> run_template.sh
 echo 'cmsRun __SCRIPT__.py'>> run_template.sh
 
 }
+CURDIR=`pwd`
 function batch_creater(){
     echo "===batch_creater_jhchoi.sh==="
 #############Set variable##########
@@ -160,13 +161,14 @@ for ITAG in `seq 0 ${NTAG}`; do
     echo "OTAG="$OTAG
     ### move to submission directory 
     cd ${WORKDIR}
-
-    for FTAG in `seq 0 ${NFILE}`; do
+    FMAX=`expr $NFILE - 1`
+    for FTAG in `seq 0 ${FMAX}`; do
+	
 	echo "OTAG="$OTAG
     ### prepare submission script 
 	echo "FTAG="$FTAG
-	
-	F_INPUT=`${CURDIR}/JOBDIR_'"$OTAG""/OUTPUT_""${FTAG}"'.root`
+	#OUTPUT_inLHE_54
+	F_INPUT=`ls ${CURDIR}/JOB_$OTAG/OUTPUT_inLHE_${FTAG}.root`
 
 	
 	echo 'import FWCore.ParameterSet.Config as cms' > TreeRun_${OTAG}_${FTAG}.py
