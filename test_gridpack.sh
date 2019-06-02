@@ -5,7 +5,7 @@ ARR_TAR=( $(ls *".${EXT}") )
 for gridpack in ${ARR_TAR[@]};do
     echo "@@TEST "${gridpack}"@@"
     TESTDIR=test_${gridpack%".${EXT}"}
-    if [ -f $TESTDIR ];then
+    if [ -d $TESTDIR ];then
       echo "Already exists ""$TESTDIR"
       continue
     fi
