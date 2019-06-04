@@ -100,6 +100,8 @@ if __name__ == "__main__":
 
     myMG=MG_gridpackGEN()
     myMG.gendirname='mg260_master'
+    myMG.gitbranch='master'
+
     if resubmit==True: 
         myMG.myMGdir=os.getcwd()+'/'+myMG.gendirname+'/bin/MadGraph5_aMCatNLO'
     else: 
