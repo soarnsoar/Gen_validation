@@ -51,6 +51,12 @@ class MG_gridpackGEN():
         print command
         os.system(command)
         
+        if 'lxplus7' in socket.gethostname():
+
+            command= 'find . -name "gridpack_generation.sh" | xargs perl -pi -e s/slc6/slc7/g'
+            print command
+            os.system(command)
+
         self.myMGdir=os.getcwd()
         #os.chdir(self.dir_current)##go back to the initial path
 
@@ -105,7 +111,7 @@ if __name__ == "__main__":
              'process':[
                  'dyellell012j_5f_NLO_FXFX'
              ],
-             'submit':True,
+             'submit':False,
     }
     
     conf261={'branch':'mg261' ,'dir':'mg261'       ,
@@ -122,7 +128,7 @@ if __name__ == "__main__":
                  'dyellell012j_5f_LO_MLM',
                  'dyellell012j_5f_NLO_FXFX'
              ],
-             'submit':False,
+             'submit':True,
     }
 
 
