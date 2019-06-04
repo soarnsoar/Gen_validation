@@ -8,13 +8,15 @@ import subprocess
 class MG_gridpackGEN():
 
 
-    def __init__(self):
+    def __init__(self,gitbranch,gendirname=None):
 
         self.card_dir=os.getcwd()+'/mycard'
         self.gengit='git@github.com:cms-sw/genproductions.git'
         self.dir_current=os.getcwd()
-        self.gitbranch='master'
-        self.gendirname=self.gitbranch
+        self.gitbranch=gitbranch
+        self.gendirname=gendirname
+        if gendirname==None:
+            self.gendirname=self.gitbranch
         self.myMGdir=os.getcwd()+'/'+self.gendirname+'/bin/MadGraph5_aMCatNLO'
     #self.process_name=''
     def setup_genproductions(self):
@@ -96,11 +98,13 @@ if __name__ == "__main__":
     #    def submit_process(self,process_name):
 
 
-    resubmit=True
+    resubmit=False
 
-    myMG=MG_gridpackGEN()
-    myMG.gendirname='mg260_master'
-    if resubmit==True: 
+    myMG=MG_gridpackGEN('mg261')
+    #myMG.gendirname='mg260_master'
+    #myMG.gitbranch='mg261'
+    if resubmit !=True and resubmit!=False: print "resubmit must be True OR False"
+    elif resubmit==True: 
         myMG.myMGdir=os.getcwd()+'/'+myMG.gendirname+'/bin/MadGraph5_aMCatNLO'
     else: 
         myMG.setup_genproductions()
