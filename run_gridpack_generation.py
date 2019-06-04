@@ -69,14 +69,15 @@ class MG_gridpackGEN():
         print self.myMGdir
         os.chdir(self.myMGdir)
         script ='submit_condor_gridpack_generation.sh'
-        nohup='k5reauth -f -i 3600 -p jhchoi -k /afs/cern.ch/user/j/${USER}/refresh_auth/${USER}.keytab -- nohup'
+        #execute='k5reauth -f -i 3600 -p jhchoi -k /afs/cern.ch/user/j/${USER}/refresh_auth/${USER}.keytab -- nohup'
+        execute ='source'
         if 'login.uscms.org' in socket.gethostname():
             script  = 'submit_cmsconnect_gridpack_generation.sh'
-            nohup = 'nohup'
+            execute = 'nohup'
         #    nohup ./submit_cmsconnect_gridpack_generation.sh ${proc} mycard/${proc}/ > ${proc}.debug 2>&1 &
 
 
-        command=nohup+' ./'+script+' '+process_name+' '+self.card_dir.split('/')[-1]+'/'+process_name+' > '+process_name+'.debug 2>&1 &'
+        command=execute+' ./'+script+' '+process_name+' '+self.card_dir.split('/')[-1]+'/'+process_name+' > '+process_name+'.debug 2>&1 &'
 
         print '---'+command+'---'
         #os.system(command)
@@ -120,7 +121,7 @@ if __name__ == "__main__":
                  'dyellell012j_5f_NLO_FXFX'
              ],
     }
-    submit_by_dictionary(conf260)
+    
     
     conf261={'branch':'mg261' ,'dir':'mg261'       ,
              'process':[
@@ -129,7 +130,7 @@ if __name__ == "__main__":
                  'dyellell012j_5f_NLO_FXFX',
              ],
     }
-    #submit_by_dictionary(conf261)
+
     
     conf265={'branch':'mg265' ,'dir':'mg265'       ,
              'process':[
@@ -137,5 +138,10 @@ if __name__ == "__main__":
                  'dyellell012j_5f_NLO_FXFX'
              ],
     }
-    #submit_by_dictionary(conf265)
+
+
+
+    #submit_by_dictionary(conf260)
+    #submit_by_dictionary(conf261)
+    submit_by_dictionary(conf265)
 
