@@ -92,21 +92,26 @@ if __name__ == "__main__":
     #    self.gitbranch='master'
     #    self.gendirname=self.gitbranch
 
+    #    def __init__(self,gitbranch,gendirname=None):
 
     #    def setup_genproductions(self):
 
     #    def submit_process(self,process_name):
 
 
-    resubmit=False
+    #myMG=MG_gridpackGEN('master','mg260_master')
+    #myMG.setup_genproductions()
+    #myMG.submit_process('dyellell01234j_5f_LO_MLM')
+    
 
-    myMG=MG_gridpackGEN('mg261')
-    #myMG.gendirname='mg260_master'
-    #myMG.gitbranch='mg261'
-    if resubmit !=True and resubmit!=False: print "resubmit must be True OR False"
-    elif resubmit==True: 
-        myMG.myMGdir=os.getcwd()+'/'+myMG.gendirname+'/bin/MadGraph5_aMCatNLO'
-    else: 
-        myMG.setup_genproductions()
-    #myMG.submit_process('dyellell012j_5f_LO_MLM')
+
+    myMG=MG_gridpackGEN('mg261','mg261')
+    myMG.setup_genproductions() 
     myMG.submit_process('dyellell01234j_5f_LO_MLM')
+    
+    
+
+    myMG=MG_gridpackGEN('mg265','mg265')
+    myMG.setup_genproductions()
+    myMG.submit_process('dyellell01234j_5f_LO_MLM')
+
