@@ -102,18 +102,27 @@ if __name__ == "__main__":
 
 
     conf260={'branch':'master','dir':'mg260_master',
-             'process':['dyellell012j_5f_NLO_FXFX']
+             'process':[
+                 'dyellell012j_5f_NLO_FXFX'
+             ]
+             'submit':True,
     }
     
     conf261={'branch':'mg261' ,'dir':'mg261'       ,
-             'process':['dyellell012j_5f_LO_MLM',
-                        'dyellell012j_5f_LO_MLM_pdfwgt_T',
-                        'dyellell012j_5f_NLO_FXFX']
+             'process':[
+                 'dyellell012j_5f_LO_MLM',
+                 'dyellell012j_5f_LO_MLM_pdfwgt_T',
+                 'dyellell012j_5f_NLO_FXFX',
+             ]
+             'submit':False,
     }
     
     conf265={'branch':'mg265' ,'dir':'mg265'       ,
-             'process':['dyellell012j_5f_LO_MLM',
-                        'dyellell012j_5f_NLO_FXFX']
+             'process':[
+                 'dyellell012j_5f_LO_MLM',
+                 'dyellell012j_5f_NLO_FXFX'
+             ]
+             'submit':False,
     }
 
 
