@@ -21,6 +21,8 @@ class MG_gridpackGEN():
     #self.process_name=''
     def setup_genproductions(self):
         
+        if os.path.exists(self.gendirname):return
+
         command= "git clone "+self.gengit+" -b "+self.gitbranch+' '+self.gendirname
         print "---"+command+"---"
         os.system(command)
@@ -99,19 +101,40 @@ if __name__ == "__main__":
     #    def submit_process(self,process_name):
 
 
-    #myMG=MG_gridpackGEN('master','mg260_master')
-    #myMG.setup_genproductions()
-    #myMG.submit_process('dyellell01234j_5f_LO_MLM')
+    conf260={'branch':'master','dir':'mg260_master',
+             'process':['dyellell012j_5f_NLO_FXFX']
+    }
     
+    conf261={'branch':'mg261' ,'dir':'mg261'       ,
+             'process':['dyellell012j_5f_LO_MLM',
+                        'dyellell012j_5f_LO_MLM_pdfwgt_T',
+                        'dyellell012j_5f_NLO_FXFX']
+    }
+    
+    conf265={'branch':'mg265' ,'dir':'mg265'       ,
+             'process':['dyellell012j_5f_LO_MLM',
+                        'dyellell012j_5f_NLO_FXFX']
+    }
 
 
-    myMG=MG_gridpackGEN('mg261','mg261')
-    myMG.setup_genproductions() 
-    myMG.submit_process('dyellell01234j_5f_LO_MLM')
-    
-    
-
-    myMG=MG_gridpackGEN('mg265','mg265')
+    myMG=MG_gridpackGEN(conf260['branch'],conf260['dir'])
     myMG.setup_genproductions()
-    myMG.submit_process('dyellell01234j_5f_LO_MLM')
+    
+    for p in conf260['process']:
+        print p
+        myMG.submit_process(p)
+    
 
+    myMG=MG_gridpackGEN(conf261['branch'],conf261['dir'])
+    myMG.setup_genproductions()
+
+    for p in conf261['process']:
+        print p
+        myMG.submit_process(p)
+
+    myMG=MG_gridpackGEN(conf265['branch'],conf265['dir'])
+    myMG.setup_genproductions()
+
+    for p in conf265['process']:
+        print p
+        myMG.submit_process(p)
