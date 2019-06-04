@@ -104,7 +104,7 @@ if __name__ == "__main__":
     conf260={'branch':'master','dir':'mg260_master',
              'process':[
                  'dyellell012j_5f_NLO_FXFX'
-             ]
+             ],
              'submit':True,
     }
     
@@ -113,7 +113,7 @@ if __name__ == "__main__":
                  'dyellell012j_5f_LO_MLM',
                  'dyellell012j_5f_LO_MLM_pdfwgt_T',
                  'dyellell012j_5f_NLO_FXFX',
-             ]
+             ],
              'submit':False,
     }
     
@@ -121,7 +121,7 @@ if __name__ == "__main__":
              'process':[
                  'dyellell012j_5f_LO_MLM',
                  'dyellell012j_5f_NLO_FXFX'
-             ]
+             ],
              'submit':False,
     }
 
@@ -130,20 +130,24 @@ if __name__ == "__main__":
     myMG.setup_genproductions()
     
     for p in conf260['process']:
-        print p
-        myMG.submit_process(p)
+        if conf260['submit']:
+            print p
+            myMG.submit_process(p)
     
 
     myMG=MG_gridpackGEN(conf261['branch'],conf261['dir'])
     myMG.setup_genproductions()
 
     for p in conf261['process']:
-        print p
-        myMG.submit_process(p)
+        if conf261['submit']:
+            print p
+            myMG.submit_process(p)
 
     myMG=MG_gridpackGEN(conf265['branch'],conf265['dir'])
     myMG.setup_genproductions()
 
     for p in conf265['process']:
-        print p
-        myMG.submit_process(p)
+        
+        if conf265['submit']:
+            print p
+            myMG.submit_process(p)
