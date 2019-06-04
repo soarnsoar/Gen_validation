@@ -86,7 +86,15 @@ class MG_gridpackGEN():
 
 
 
-        
+def submit_by_dictionary(conf):       
+    myMG=MG_gridpackGEN(conf['branch'],conf['dir'])
+    myMG.setup_genproductions()
+    
+    for p in conf['process']:
+
+        print p
+        myMG.submit_process(p)
+
 
 
 
@@ -111,8 +119,8 @@ if __name__ == "__main__":
              'process':[
                  'dyellell012j_5f_NLO_FXFX'
              ],
-             'submit':False,
     }
+    submit_by_dictionary(conf260)
     
     conf261={'branch':'mg261' ,'dir':'mg261'       ,
              'process':[
@@ -120,41 +128,14 @@ if __name__ == "__main__":
                  'dyellell012j_5f_LO_MLM_pdfwgt_T',
                  'dyellell012j_5f_NLO_FXFX',
              ],
-             'submit':False,
     }
+    #submit_by_dictionary(conf261)
     
     conf265={'branch':'mg265' ,'dir':'mg265'       ,
              'process':[
                  'dyellell012j_5f_LO_MLM',
                  'dyellell012j_5f_NLO_FXFX'
              ],
-             'submit':True,
     }
+    #submit_by_dictionary(conf265)
 
-    if conf260['submit']:
-        myMG=MG_gridpackGEN(conf260['branch'],conf260['dir'])
-        myMG.setup_genproductions()
-        
-        for p in conf260['process']:
-   
-            print p
-            myMG.submit_process(p)
-    
-    if conf261['submit']:
-        myMG=MG_gridpackGEN(conf261['branch'],conf261['dir'])
-        myMG.setup_genproductions()
-        
-        for p in conf261['process']:
-        
-            print p
-            myMG.submit_process(p)
-
-    if conf265['submit']:
-        myMG=MG_gridpackGEN(conf265['branch'],conf265['dir'])
-        myMG.setup_genproductions()
-
-        for p in conf265['process']:
-        
-
-            print p
-            myMG.submit_process(p)
