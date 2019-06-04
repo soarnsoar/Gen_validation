@@ -131,29 +131,30 @@ if __name__ == "__main__":
              'submit':True,
     }
 
-
-    myMG=MG_gridpackGEN(conf260['branch'],conf260['dir'])
-    myMG.setup_genproductions()
-    
-    for p in conf260['process']:
-        if conf260['submit']:
-            print p
-            myMG.submit_process(p)
-    
-
-    myMG=MG_gridpackGEN(conf261['branch'],conf261['dir'])
-    myMG.setup_genproductions()
-
-    for p in conf261['process']:
-        if conf261['submit']:
-            print p
-            myMG.submit_process(p)
-
-    myMG=MG_gridpackGEN(conf265['branch'],conf265['dir'])
-    myMG.setup_genproductions()
-
-    for p in conf265['process']:
+    if conf260['submit']:
+        myMG=MG_gridpackGEN(conf260['branch'],conf260['dir'])
+        myMG.setup_genproductions()
         
-        if conf265['submit']:
+        for p in conf260['process']:
+   
+            print p
+            myMG.submit_process(p)
+    
+    if conf261['submit']:
+        myMG=MG_gridpackGEN(conf261['branch'],conf261['dir'])
+        myMG.setup_genproductions()
+        
+        for p in conf261['process']:
+        
+            print p
+            myMG.submit_process(p)
+
+    if conf265['submit']:
+        myMG=MG_gridpackGEN(conf265['branch'],conf265['dir'])
+        myMG.setup_genproductions()
+
+        for p in conf265['process']:
+        
+
             print p
             myMG.submit_process(p)
