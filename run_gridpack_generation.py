@@ -58,6 +58,9 @@ class MG_gridpackGEN():
             os.system(command)
 
         self.myMGdir=os.getcwd()
+        
+        command='git clone git@github.com:soarnsoar/Gen_validation.git'
+        os.system(command)
         #os.chdir(self.dir_current)##go back to the initial path
 
         #return myMGdir ## setup dir
@@ -125,8 +128,8 @@ if __name__ == "__main__":
     
     conf261={'branch':'mg261' ,'dir':'mg261'       ,
              'process':[
-                 'dyellell012j_5f_LO_MLM',
-                 'dyellell012j_5f_LO_MLM_pdfwgt_T',
+                 #'dyellell012j_5f_LO_MLM',
+                 #'dyellell012j_5f_LO_MLM_pdfwgt_T',
                  'dyellell012j_5f_NLO_FXFX',
              ],
     }
@@ -134,7 +137,7 @@ if __name__ == "__main__":
     
     conf265={'branch':'mg265' ,'dir':'mg265'       ,
              'process':[
-                 'dyellell012j_5f_LO_MLM',
+                 #'dyellell012j_5f_LO_MLM',
                  'dyellell012j_5f_NLO_FXFX'
              ],
     }
