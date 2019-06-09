@@ -11,11 +11,12 @@ class MG_gridpackGEN():
 
     def __init__(self,branch,dirname):
 
-        self.dirname=dirname
-        self.branch=branch
+        self.gendirname=dirname
+        self.gitbranch=branch
         self.gengit='git@github.com:cms-sw/genproductions.git'
         self.MGGENDIR=None
         self.card_dir=os.getcwd()+'/mycard'
+        self.curdir=os.getcwd()
         #setup vars#
         self.DIR_FLAG='bin/MadGraph5_aMCatNLO/JHCHOI_FLAGS/'
         self.wait_sec_git=10
@@ -29,19 +30,22 @@ class MG_gridpackGEN():
         #if setup never tried
         #if setup is running
         #if setup is done
-        check_whther_the_setup_is_done()
+        self.check_whther_the_setup_is_done()
 
 
 
 
         ##(2)set up using git
-        setup_using_git()
+        self.setup_using_git()
 
         #chdir to MGwordir
 
-        self.MGGENdir=self.gendirname+'/'+self.DIR_FLAG
-        print '[chdir]'+self.MGGENdir
-        os.chdir(self.MGGENdir)
+        self.MGGENDIR=self.gendirname+'/bin/MadGraph5_aMCatNLO'
+        print '[chdir]'+self.MGGENDIR
+        os.chdir(self.MGGENDIR)
+
+        ##(2-1) copy carddir
+        os.system('cp -r '+self.card_dir+' .')
 
         ##(3)add runtime calc line
         command='git clone git@github.com:soarnsoar/python_tool.git'
@@ -65,7 +69,7 @@ class MG_gridpackGEN():
         ##(5)install some Genval tools
         command='git clone git@github.com:soarnsoar/Gen_validation.git'
         os.system(command)
-
+        os.chdir(self.curdir)
     ## sub module of setup_genproductions() ##
     def check_whther_the_setup_is_done(self):
         #if genproductions exist
@@ -114,7 +118,7 @@ class MG_gridpackGEN():
         # if done -> send an email
         scriptname='run__'+self.gitbranch+"__"+self.gendirname+"__"+process_name+'.sh'
         f=open(scriptname,'w')
-        f.write('pushd '+self.myMGdir+'\n')
+        f.write('pushd '+self.MGGENDIR+'\n')
         f.write('rm -rf '+process_name+'\n')
         f.write('rm '+process_name+'log\n')
         f.write('rm '+process_name+'debug\n')
@@ -131,7 +135,7 @@ class MG_gridpackGEN():
 
 
 
-def submit_by_dictionary(conf)
+def submit_by_dictionary(conf):
     myMG=MG_gridpackGEN(conf['branch'],conf['dir'])
     
     myMG.setup_genproductions()
@@ -168,4 +172,4 @@ if __name__ == "__main__":
     
 
 
-   submit_by_dictionary(conf)
+    submit_by_dictionary(conf)
