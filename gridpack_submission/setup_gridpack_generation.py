@@ -105,7 +105,7 @@ class MG_gridpackGEN():
         script ='submit_condor_gridpack_generation.sh'
         execute ='source'
         ##if cms connect##
-        commnad=execute+' '+script+' '+process_name+' '+self.card_dir.split('/')[-1]+'/'+process_name+' &> '+process_name+'.debug&'
+        command=execute+' '+script+' '+process_name+' '+self.card_dir.split('/')[-1]+'/'+process_name+' &> '+process_name+'.debug&'
         if 'login.uscms.org' in self.HOSTNAME:
             script  = 'submit_cmsconnect_gridpack_generation.sh'
             execute = 'nohup'
