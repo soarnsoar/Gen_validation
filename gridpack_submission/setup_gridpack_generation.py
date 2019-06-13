@@ -110,6 +110,10 @@ class MG_gridpackGEN():
             script  = 'submit_cmsconnect_gridpack_generation.sh'
             execute = 'nohup'
             command=execute+' ./'+script+' '+process_name+' '+self.card_dir.split('/')[-1]+'/'+process_name+' > '+process_name+'.debug 2>&1 &'
+        if 'snu.ac.kr' in self.HOSTNAME and 'cms' in self.HOSTNAME:
+            script  = 'gridpack_generation.sh'
+            execute = 'nohup'
+            command=execute+' ./'+script+' '+process_name+' '+self.card_dir.split('/')[-1]+'/'+process_name+' > '+process_name+'.debug 2>&1 &'
 
         ##(2) make submission script
         #contents : 
