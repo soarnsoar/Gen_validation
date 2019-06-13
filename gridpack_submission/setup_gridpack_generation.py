@@ -59,7 +59,7 @@ class MG_gridpackGEN():
         os.system(command)
         
         ##(4)modify SCRAM_ARCH if needed
-        if 'lxplus7' in self.HOSTNAME or 'login-el7' in self.HOSTNAME:
+        if 'lxplus7' in self.HOSTNAME:
 
             command= 'find . -name "gridpack_generation.sh" | xargs perl -pi -e s/slc6/slc7/g'
             print command
