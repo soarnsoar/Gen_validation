@@ -116,7 +116,7 @@ class MG_gridpackGEN():
             script  = 'submit_cmsconnect_gridpack_generation.sh'
             execute = 'nohup'
             command=execute+' ./'+script+' '+process_name+' '+self.card_dir.split('/')[-1]+'/'+process_name+' > '+process_name+'.debug 2>&1 &'
-        if 'snu.ac.kr' in self.HOSTNAME and 'cms' in self.HOSTNAME:
+        if 'cms1' in self.HOSTNAME or 'cms2' in self.HOSTNAME:
             script  = 'gridpack_generation.sh'
             execute = 'nohup'
             command=execute+' ./'+script+' '+process_name+' '+self.card_dir.split('/')[-1]+'/'+process_name+' > '+process_name+'.debug 2>&1 &'
@@ -131,9 +131,11 @@ class MG_gridpackGEN():
         f=open(scriptname,'w')
         f.write('pushd '+self.MGGENDIR+'\n')
         f.write('rm -rf '+process_name+'\n')
-        f.write('rm '+process_name+'log\n')
-        f.write('rm '+process_name+'debug\n')
+        f.write('rm '+process_name+'.log\n')
+        f.write('rm '+process_name+'.debug\n')
         f.write('rm '+process_name+'_codegen.sh\n')
+        f.write('rm '+process_name+'_codegen.log\n')
+        f.write('chmod u+x '+script+'\n')
         f.write(command+'\n')
         f.write('popd\n')
         f.close()
