@@ -129,6 +129,7 @@ class MG_gridpackGEN():
         f.write('rm '+process_name+'.debug\n')
         f.write('rm '+process_name+'_codegen.sh\n')
         f.write('rm '+process_name+'_codegen.log\n')
+        f.write('chmod u+x '+script+'\n')
         f.write(command+'\n')
         f.write('popd\n')
         f.close()
