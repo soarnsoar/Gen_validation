@@ -53,7 +53,7 @@ class MG_gridpackGEN():
         os.system(command)
 
 
-        if "login.uscms.org" in HOSTNAME:
+        if "login.uscms.org" in self.HOSTNAME:
             if os.path.isfile('submit_condor_gridpack_generation.sh_old'):
                 print "->already runtime added submit_condor_gridpack_generation.sh_old"
             else:
