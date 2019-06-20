@@ -51,18 +51,13 @@ class MG_gridpackGEN():
         command='git clone git@github.com:soarnsoar/python_tool.git'
         print command
         os.system(command)
-        if os.path.isfile('submit_condor_gridpack_generation.sh_old'):
+        if os.path.isfile('gridpack_generation.sh_old'):
             print "->already runtime added submit_condor_gridpack_generation.sh_old"
         else:
-            command='python python_tool/add_runtime.py submit_condor_gridpack_generation.sh'
+            command='python python_tool/add_runtime.py gridpack_generation.sh'
             print command
             os.system(command)
-        if os.path.isfile('submit_cmsconnect_gridpack_generation.sh_old'):
-            print "->already runtime added submit_cmsconnect_gridpack_generation.sh"
-        else:
-            command='python python_tool/add_runtime.py submit_cmsconnect_gridpack_generation.sh'
-            print command
-            os.system(command)
+
         
         ##(4)modify SCRAM_ARCH if needed
         if 'lxplus7' in self.HOSTNAME:
