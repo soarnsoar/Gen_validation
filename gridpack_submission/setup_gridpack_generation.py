@@ -51,18 +51,24 @@ class MG_gridpackGEN():
         command='git clone git@github.com:soarnsoar/python_tool.git'
         print command
         os.system(command)
-        if os.path.isfile('submit_condor_gridpack_generation.sh_old'):
-            print "->already runtime added submit_condor_gridpack_generation.sh_old"
+
+
+        if "login.uscms.org" in self.HOSTNAME:
+            if os.path.isfile('submit_condor_gridpack_generation.sh_old'):
+                print "->already runtime added submit_condor_gridpack_generation.sh_old"
+            else:
+                command='python python_tool/add_runtime.py submit_condor_gridpack_generation.sh'
+                print command
+                os.system(command)
+
         else:
-            command='python python_tool/add_runtime.py submit_condor_gridpack_generation.sh'
-            print command
-            os.system(command)
-        if os.path.isfile('submit_cmsconnect_gridpack_generation.sh_old'):
-            print "->already runtime added submit_cmsconnect_gridpack_generation.sh"
-        else:
-            command='python python_tool/add_runtime.py submit_cmsconnect_gridpack_generation.sh'
-            print command
-            os.system(command)
+            if os.path.isfile('gridpack_generation.sh_old'):
+                print "->already runtime added gridpack_generation.sh_old"
+            else:
+                command='python python_tool/add_runtime.py gridpack_generation.sh'
+                print command
+                os.system(command)
+
         
         ##(4)modify SCRAM_ARCH if needed
         if 'lxplus7' in self.HOSTNAME:
@@ -129,6 +135,7 @@ class MG_gridpackGEN():
         # if done -> send an email
         scriptname='run__'+self.gitbranch+"__"+self.gendirname+"__"+process_name+'.sh'
         f=open(scriptname,'w')
+        f.write('echo "==SUBMITTING....=="\n')
         f.write('pushd '+self.MGGENDIR+'\n')
         f.write('rm -rf '+process_name+'\n')
         f.write('rm '+process_name+'.log\n')
