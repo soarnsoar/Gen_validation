@@ -124,6 +124,7 @@ class MG_gridpackGEN():
         # if done -> send an email
         scriptname='run__'+self.gitbranch+"__"+self.gendirname+"__"+process_name+'.sh'
         f=open(scriptname,'w')
+        f.write('echo "==SUBMITTING....=="\n')
         f.write('pushd '+self.MGGENDIR+'\n')
         f.write('rm -rf '+process_name+'\n')
         f.write('rm '+process_name+'.log\n')
@@ -132,7 +133,6 @@ class MG_gridpackGEN():
         f.write('rm '+process_name+'_codegen.log\n')
         f.write('chmod u+x '+script+'\n')
         f.write(command+'\n')
-        f.write('echo "==RUNNING ""$0""=="\n')
         f.write('popd\n')
         f.close()
         print "---DONE---"
