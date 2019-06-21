@@ -52,23 +52,23 @@ class MG_gridpackGEN():
         print command
         os.system(command)
 
+        #(3-1) add interactive job script
+        command='echo "./gridpack_generation.sh \$@" > run_interactive_gridpack_generation.sh'
+        print command
+        os.system(command)
+        
 
-        if "login.uscms.org" in self.HOSTNAME:
-            if os.path.isfile('submit_cmsconnect_gridpack_generation.sh_old'):
-                print "->already runtime added submit_cmsconnect_gridpack_generation.sh_old"
+        ##(3-2) add runtime
+        scripts_to_add_runtime=['submit_cmsconnect_gridpack_generation.sh', 'run_interactive_gridpack_generation.sh','submit_condor_gridpack_generation.sh']
+        
+        for myscript in scripts_to_add_runtime:
+            if os.path.isfile(myscript+"_old"): ##already add runtime
+                print "->already runtime added to "+myscript
             else:
-                command='python python_tool/add_runtime.py submit_cmsconnect_gridpack_generation.sh'
+                command = 'python python_tool/add_runtime.py '+myscript
                 print command
                 os.system(command)
-
-        else:
-            if os.path.isfile('gridpack_generation.sh_old'):
-                print "->already runtime added gridpack_generation.sh_old"
-            else:
-                command='python python_tool/add_runtime.py gridpack_generation.sh'
-                print command
-                os.system(command)
-
+        
         
         ##(4)modify SCRAM_ARCH if needed
         if 'lxplus7' in self.HOSTNAME:
@@ -123,7 +123,7 @@ class MG_gridpackGEN():
             execute = 'nohup'
             command=execute+' ./'+script+' '+process_name+' '+self.card_dir.split('/')[-1]+'/'+process_name+' > '+process_name+'.debug 2>&1 &'
         if 'cms1' in self.HOSTNAME or 'cms2' in self.HOSTNAME:
-            script  = 'gridpack_generation.sh'
+            script  = 'run_interactive_gridpack_generation.sh'
             execute = 'nohup'
             command=execute+' ./'+script+' '+process_name+' '+self.card_dir.split('/')[-1]+'/'+process_name+' > '+process_name+'.debug 2>&1 &'
 
