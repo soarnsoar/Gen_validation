@@ -30,7 +30,7 @@ scriptName = cms.FileInPath(\'GeneratorInterface/LHEInterface/data/run_generic_t
     f.close()
     fnew.close()
     #f=open('run_cmsDriver.sh','w')
-    command='cmsDriver.py Configuration/Generator/python/'+tag+'_cfg.py --fileout file:OUTPUT.root --mc --eventcontent RAWSIM,LHE --datatier GEN-SIM,LHE --conditions 102X_upgrade2018_realistic_v11 --beamspot Realistic25ns13TeVEarly2018Collision --step LHE,GEN,SIM --nThreads 8 --geometry DB:Extended --era Run2_2018 --python_filename '+tag+'_run_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring --customise_commands process.RandomNumberGeneratorService.externalLHEProducer.initialSeed='+seed+' -n '+nevent+' || exit $? ; '
+    command='cmsDriver.py Configuration/Generator/python/'+tag+'_cfg.py --fileout file:OUTPUT_'+seed+'.root --mc --eventcontent RAWSIM,LHE --datatier GEN-SIM,LHE --conditions 102X_upgrade2018_realistic_v11 --beamspot Realistic25ns13TeVEarly2018Collision --step LHE,GEN,SIM --nThreads 8 --geometry DB:Extended --era Run2_2018 --python_filename run_'+tag+'__'+seed+'__'+nevent+'evt_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring --customise_commands process.RandomNumberGeneratorService.externalLHEProducer.initialSeed='+seed+' -n '+nevent+' || exit $? ; '
     
     
     os.system(command)
