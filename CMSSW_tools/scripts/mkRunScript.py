@@ -43,7 +43,8 @@ else:
     print "need --gridpack option"
     exit()
 
-
+os.system('mkdir -p '+'JOBDIR__'+tag+'__'+nevent+'evt/')
+os.chdir('JOBDIR__'+tag+'__'+nevent+'evt/')
 f=open('run_'+tag+'__'+seed+'__'+nevent+'evt_cfg.sh','w')
 if os.getenv('CMSSW_BASE'):
     CMSSW_BASE=os.getenv('CMSSW_BASE')
@@ -60,20 +61,33 @@ source $VO_CMS_SW_DIR/cmsset_default.sh
 
 '''
 f.write('#!/bin/bash\n')
+f.write('StartTime=$(date +%s)\n')
 f.write('export VO_CMS_SW_DIR=/cvmfs/cms.cern.ch\n')
 f.write('export SCRAM_ARCH='+os.getenv('SCRAM_ARCH')+'\n')
 f.write('source $VO_CMS_SW_DIR/cmsset_default.sh\n')
-f.write('cd '+CMSSW_BASE+'/src\n')
-f.write('cmsenv\n')
-f.write('cd '+MYWORKDIR+'\n')
-f.write('mkdir -p JOBDIR__'+tag+'__'+nevent+'evt/\n')
-f.write('cd JOBDIR__'+tag+'__'+nevent+'evt/\n')
+#f.write('cd '+CMSSW_BASE+'/src\n')
+f.write('echo "==Extract Tarball=="\n')
+f.write('tar -xf INPUT__submit__run_'+tag+'__'+seed+'__'+nevent+'evt_cfg.tar.gz\n')
+f.write('cd CMSSW'+CMSSW_BASE.split('CMSSW')[-1]+'/src\n'   )
+f.write('scram build ProjectRename\n')
+f.write('eval `scramv1 runtime -sh`\n')
+f.write('cd ../../\n')
+#f.write('cd '+MYWORKDIR+'\n')
+#f.write('mkdir -p JOBDIR__'+tag+'__'+nevent+'evt/\n')
+#f.write('cd JOBDIR__'+tag+'__'+nevent+'evt/\n')
 f.write('make_fragment.py --fragment '+fragment+' --nevent '+nevent+' --seed '+seed+' --tag '+tag+' --gridpack '+gridpack+'\n')
-f.write('mkdir -p WORKDIR__'+tag+'__'+seed+'__'+nevent+'evt\n')
-f.write('cd WORKDIR__'+tag+'__'+seed+'__'+nevent+'evt\n')
-f.write('cmsRun '+'../run_'+tag+'__'+seed+'__'+nevent+'evt_cfg.py\n')
-f.write('cd '+MYWORKDIR+'\n')
-f.write('mv JOBDIR__'+tag+'__'+nevent+'evt/WORKDIR__'+tag+'__'+seed+'__'+nevent+'evt /xrootd/store/user/jhchoi/Generator_group/validation_GEN/\n' )
+#f.write('mkdir -p WORKDIR__'+tag+'__'+seed+'__'+nevent+'evt\n')
+#f.write('cd WORKDIR__'+tag+'__'+seed+'__'+nevent+'evt\n')
+#f.write('cmsRun '+'../run_'+tag+'__'+seed+'__'+nevent+'evt_cfg.py\n')
+f.write('cmsRun '+'run_'+tag+'__'+seed+'__'+nevent+'evt_cfg.py\n')
+#f.write('cd '+MYWORKDIR+'\n')
+#f.write('mv JOBDIR__'+tag+'__'+nevent+'evt/WORKDIR__'+tag+'__'+seed+'__'+nevent+'evt /xrootd/store/user/jhchoi/Generator_group/validation_GEN/\n' )
+f.write('EndTime=$(date +%s)\n')
+f.write('echo "runtime : $(($EndTime - $StartTime)) sec"\n')
+f.write('echo "@@JOB FINISHED@@"\n')
+#f.write('mv *.root '+MYWORKDIR+'/JOBDIR__'+tag+'__'+nevent+'evt/\n')
+f.write('xrdfs '+XROOTD_ADDRESS+' mkdir '+MYSTORAGEPATH+'/OUTPUTS__'+tag+'__'+nevent+'\n')
+f.write('xrdcp *.root '+XROOTD_ADDRESS+'/'+MYSTORAGEPATH+'/OUTPUTS__'+tag+'__'+nevent+'/\n')
 f.close()
 
 

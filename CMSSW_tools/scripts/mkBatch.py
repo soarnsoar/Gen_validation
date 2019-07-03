@@ -7,6 +7,7 @@ import os
 parser = argparse.ArgumentParser()
 ####Set options###
 parser.add_argument("--exe", help="executable file")
+parser.add_argument("--inputfiles", help="input files")
 
 
 
@@ -17,11 +18,19 @@ if args.exe:
 else:
     print "need --exe option"
     exit()
-
+if args.inputfiles:
+    inputfiles=args.inputfiles
+else:
+    inputfiles=''
+#    print "need --inputfiles option"
+#    exit()
 
 
 name='submit__'+''.join(exe.split('.sh')[:-1])
 #print 'jds='+name
+
+CMSSW_BASE=os.getenv('CMSSW_BASE')
+
 f=open(name+'.jds','w')
 
 f.write('executable ='+exe+'\n')
@@ -32,6 +41,12 @@ f.write('log = '+name+'.log\n')
 f.write('getenv     = True\n')
 f.write('output = '+name+'_$(Process).out\n')
 f.write('error = '+name+'_$(Process).err\n')
+f.write('should_transfer_files = YES\n')
+#f.write('when_to_transfer_output = ON_EXIT\n')
+f.write('transfer_input_files = '+CMSSW_BASE.split('CMSSW')[0]+'/INPUT_TARS/INPUT__'+name+'.tar.gz\n')
+#f.write('transfer_output_remaps = "OUTPUT.root = OUTPUT_$(Process).root"\n')
+#f.write('transfer_output_files = OUTPUT_'+seed+'.root\n')
+
 HOSTNAME=os.getenv('HOSTNAME')
 if 'ui10' in HOSTNAME:
     f.write('requirements = ( HasSingularity == true )\n')
@@ -43,3 +58,11 @@ f.close()
 
 #os.system('condor_submit '+name+'.jds > '+name+'.jid')
 
+
+
+
+os.chdir(CMSSW_BASE+'/../')
+#os.system('rm INPUT__'+name+'.tar.gz')
+os.system('tar -czf INPUT__'+name+'.tar.gz CMSSW* '+inputfiles)
+os.system('mkdir -p INPUT_TARS/')
+os.system('mv INPUT__'+name+'.tar.gz INPUT_TARS/')

@@ -64,8 +64,11 @@ f_userconfig.close()
 for i in range(int(startseed),int(endseed)+1):
     seed=str(i)
     name='run_'+tag+'__'+seed+'__'+nevent+'evt_cfg'
+    #os.system('mkdir -p '+MYWORKDIR+'/JOBDIR__'+tag+'__'+nevent+'evt/')
+    #os.chdir(MYWORKDIR+'/JOBDIR__'+tag+'__'+nevent+'evt/')
     os.chdir(MYWORKDIR)
     os.system('mkRunScript.py --fragment '+fragment+' --nevent '+nevent+' --seed '+seed+' --tag '+tag+' --gridpack '+gridpack)
+    os.chdir(MYWORKDIR+'/JOBDIR__'+tag+'__'+nevent+'evt/')
     os.system('mkBatch.py --exe '+name+'.sh')
     print '[JOB SUBMIT]condor_submit '+'submit__'+name+'.jds > submit__'+name+'.jid'
     os.system('condor_submit '+'submit__'+name+'.jds > submit__'+name+'.jid') 
