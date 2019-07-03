@@ -81,7 +81,7 @@ f.write('cd $CMSSW_BASE/src/Gen_validation/CMSSW_tools/plugins\n')
 #f.write('cmsRun RunWeightChecker.py > WeightInfo.txt\n')
 f.write('CreateModuleBasedOnConfig.py --config $CMSSW_BASE/src/Gen_validation/CMSSW_tools/scripts/HistoConfigForReweight.py --rootfile '+inputrootfile+'\n')
 f.write('cd $CMSSW_BASE/../\n')
-f.write('CreateCmsRunPythonBasedOnConfig --config $CMSSW_BASE/src/Gen_validation/CMSSW_tools/scripts/HistoConfigForReweight.py --rootfile '+inputrootfile+'\n')
+f.write('CreateCmsRunPythonBasedOnConfig.py --config $CMSSW_BASE/src/Gen_validation/CMSSW_tools/scripts/HistoConfigForReweight.py --rootfile '+inputrootfile+'\n')
 f.write('cd $CMSSW_BASE/src;scram b -j 10\n')
 f.write('cd $CMSSW_BASE/../\n')
 for key in HistoConfig:
