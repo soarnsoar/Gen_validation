@@ -13,8 +13,18 @@ process.source = cms.Source("PoolSource",
            fileNames = cms.untracked.vstring(
 
 
-"file:/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/test_file/mg260_master_dyellell012j_5f_NLO_FXFX__5000evt.root"
-      )
+
+#"file:/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR__GENEVT_mg260_master_dyellell01234j_5f_LO_MLM__5000evt/OUTPUT_0.root",\
+#"file:/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR__GENEVT_mg261_dyellell01234j_5f_LO_MLM__5000evt/OUTPUT_0.root",\
+#"file:/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR__GENEVT_mg265_dyellell01234j_5f_LO_MLM__5000evt/OUTPUT_0.root",\
+#"file:/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR__GENEVT_mg260_master_dyellell012j_5f_NLO_FXFX__5000evt/OUTPUT_0.root",\
+#"file:/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR__GENEVT_mg261_dyellell012j_5f_NLO_FXFX__5000evt/OUTPUT_0.root" ,\
+"file:/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR__GENEVT_mg265_dyellell012j_5f_NLO_FXFX__5000evt/OUTPUT_0.root" ,\
+
+
+
+
+     )
 )
        
 process.DYValidation = cms.EDAnalyzer('weight_checker',

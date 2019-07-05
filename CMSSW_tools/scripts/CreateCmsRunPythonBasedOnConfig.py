@@ -5,6 +5,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("--config", help="config file path")
 parser.add_argument("--rootfile", help="input root file path")
+parser.add_argument("--seed", help=" root file's seed")
 
 args = parser.parse_args()
 
@@ -20,8 +21,14 @@ else:
     print "need --rootfile option"
     exit()
 
+if args.seed:
+    seed=args.seed
+else:
+    print "need --seed option"
+    exit()
 
-def CreateConfigPy(HistoConfig,rootfile):
+
+def CreateConfigPy(HistoConfig,rootfile,seed):
     ccname='HistoFactoryDYKinematics'
     
     for key in HistoConfig:
@@ -42,7 +49,7 @@ process.load("FWCore.MessageService.MessageLogger_cfi")
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 process.TFileService = cms.Service("TFileService",
-                                   fileName = cms.string("HISTO__{0}__.root"),
+                                   fileName = cms.string("HISTO__{0}__{3}.root"),
                                    closeFileFast = cms.untracked.bool(True)
                                )
 
@@ -65,7 +72,7 @@ process.DYValidation = cms.EDAnalyzer('HistoFactoryDYKinematics__{2}__',
 
 
 process.p = cms.Path(process.DYValidation)
-        '''.format(key,rootfile,key)
+        '''.format(key,rootfile,key,seed)
         
         fnew.close()
 
@@ -80,7 +87,7 @@ if __name__ == "__main__":
     exec(f)
     f.close()
     
-    CreateConfigPy(HistoConfig,rootfile)
+    CreateConfigPy(HistoConfig,rootfile,seed)
     
 
     ##HistoConfig['varname']

@@ -155,6 +155,15 @@ weight_checker::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   int lheinfocommentssize = LHEInfo->comments_size();
   //cout<<"lheinfocommentssize="<<lheinfocommentssize<<endl;
   cout<<"lheinfoweightsize="<<lheinfoweightsize<<endl;
+  for (int i =0; i < lheinfoweightsize; i++){
+    //cout<<"i="<<i<<"  "<< LHEInfo->weights()[i].id<<endl;
+    int id = std::stoi(LHEInfo->weights()[i].id);
+    //cout<<"id="<<id<<endl;
+    if(id-i != std::stoi(LHEInfo->weights()[0].id)){
+      cout<<"!!!!!!!!!Order is not consistent"<<endl;
+      return;
+    }
+  }
 
 
 #ifdef THIS_IS_AN_EVENT_EXAMPLE
@@ -243,7 +252,7 @@ weight_checker::endRun(edm::Run const& iEvent, edm::EventSetup const&)
 
   LHERunInfoProduct myLHERunInfoProduct = *(run.product());
   for (headers_const_iterator iter=myLHERunInfoProduct.headers_begin(); iter!=myLHERunInfoProduct.headers_end(); iter++){
-    cout<<" iter->tag() "<<endl;
+    //cout<<" iter->tag() "<<endl;
     std::cout << iter->tag() << std::endl;
     std::vector<std::string> lines = iter->lines();
 

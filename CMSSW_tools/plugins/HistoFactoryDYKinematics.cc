@@ -394,10 +394,10 @@ HistoFactoryDYKinematics::beginJob()
 //HistoFactoryDYKinematics::beginJob(edm::Run const& iRun)
 //HistoFactoryDYKinematics::beginJob(edm::Run const& iRun, edm::EventSetup const &iSetup)
 {
-  cout<<"begin job"<<endl;
+  //cout<<"begin job"<<endl;
 
 
-  cout<<"end of begin job"<<endl;
+  //cout<<"end of begin job"<<endl;
 
 
   
@@ -409,7 +409,7 @@ HistoFactoryDYKinematics::beginJob()
 void 
 HistoFactoryDYKinematics::endJob() 
 {
-  cout<<"endjob"<<endl;
+  //cout<<"endjob"<<endl;
   //outputFile->Write();
   //outputFile->Close();
 
@@ -420,7 +420,7 @@ HistoFactoryDYKinematics::endJob()
 
 void 
 HistoFactoryDYKinematics::beginRun(const Run &iEvent, EventSetup const &iSetup ){
-  cout<<" beginrun"<<endl;
+  //cout<<" beginrun"<<endl;
   //edm::Handle<LHEEventProduct> LHEInfo;
   //iEvent.getByToken(LHEInfo_Token, LHEInfo);
   //int lheinfoweightsize= LHEInfo->weights().size();
@@ -428,7 +428,7 @@ HistoFactoryDYKinematics::beginRun(const Run &iEvent, EventSetup const &iSetup )
   //TH1D *h=new TH1D("a","a",100,0,100);
   //v_h_pt.push_back(h);
   
-  cout<<"end of beginrun"<<endl;
+  //cout<<"end of beginrun"<<endl;
 }
 
 
@@ -436,7 +436,7 @@ HistoFactoryDYKinematics::beginRun(const Run &iEvent, EventSetup const &iSetup )
 void
 HistoFactoryDYKinematics::endRun(edm::Run const& iEvent, edm::EventSetup const&) 
 {
-  cout<<"doendrun"<<endl;
+  //cout<<"doendrun"<<endl;
 
 }
 // ------------ method fills 'descriptions' with the allowed parameters for the module  ------------
