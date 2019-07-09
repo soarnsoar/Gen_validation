@@ -82,6 +82,19 @@ class MG_gridpackGEN():
         command='git clone git@github.com:soarnsoar/Gen_validation.git'
         os.system(command)
         os.chdir(self.curdir)
+
+        ##(6) lxplus condor schedd patch
+        #https://hypernews.cern.ch/HyperNews/CMS/get/generators/4372/1/1.html
+        if 'lxplus' in self.HOSTNAME:
+            if os.path.isfile(self.MGGENDIR+'/Utilities/source_condor_patched'):
+                print "[condor schedd patch] already done"
+            else:
+                f_source_condor=open(self.MGGENDIR+'/Utilities/source_condor.sh','a')
+                f_source_condor.write('export _condor_SCHEDD_HOST=bigbird17.cern.ch')
+                f_source_condor.write('export _condor_CREDD_HOST=bigbird17.cern.ch')
+                f_source_condor.close()
+                os.system('touch '+self.MGGENDIR+'/Utilities/source_condor_patched')
+                
     ## sub module of setup_genproductions() ##
     def check_whther_the_setup_is_done(self):
         #if genproductions exist
