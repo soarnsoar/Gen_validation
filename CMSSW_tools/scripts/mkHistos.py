@@ -51,6 +51,7 @@ f_userconfig.close()
 #INPUTDIR=XROOTD_ADDRESS+'/'+MYSTORAGEPATH+'/OUTPUTS__GENEVT_'+tag+'__'+nevent+'/'
 
 #'run_'+tag+'__'+seed+'__'+nevent+'evt_cfg.sh'
+print "[mkHistos]"
 
 for i in range(int(startseed),int(endseed)+1):
 

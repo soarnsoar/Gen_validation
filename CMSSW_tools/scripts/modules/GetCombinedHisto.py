@@ -6,17 +6,21 @@ from array import array
 ##Type of systematic cal.
 #https://arxiv.org/pdf/1412.7420.pdf
 #symhessian:sigma = sigma+ = sigma- = sqrt[ Sum{i=1~N}( F_i - F_0  )^2   ]
-#replica   :sigma = sigma+ = sigma- = sqrt[  N_rep/(N_rep-1)  * (<F^2> - <F>^2   )   ]
+#replicas   :sigma = sigma+ = sigma- = sqrt[  N_rep/(N_rep-1)  * (<F^2> - <F>^2   )   ]
 #hessian   :up-element & down-element
 ##sigma+ = sqrt[ Sum[ max(F_i_up - F_0 , F_i_down - F_0, 0 )^2   ]   ]
 ##sigma- = sqrt[ Sum[ max(F_0 - F_i_up , F+0 - F_i_down, 0 )^2   ]   ]
 
 #---Predefined functions
 
-def SerError_envelope_iBin(hlist,iBin,evy_up,evy_dn): 
 
+def SerError_envelope_iBin(hlist,iBin,evy_up,evy_dn): 
+    if iBin==0 :print ">>>>[combination] envelope"
     ##evy_up , evy_dn -> mutable variable -> if chaned in a function, then the changed value will be remained after the function 
     ## Scan all histo ##                                                                                                                              
+
+    
+
     ycenter=hlist[0].GetBinContent (iBin)
     ymax=ycenter
     ymin=ycenter
@@ -37,7 +41,7 @@ def SerError_envelope_iBin(hlist,iBin,evy_up,evy_dn):
 
     
 def SetError_symmhessian_iBin(hlist,iBin,evy_up,evy_dn):
-
+    if iBin==0 :print ">>>>[combination] SetError_symmhessian_iBin"
     #symhessian:sigma = sigma+ = sigma- = sqrt[ Sum{i=1~N}( F_i - F_0  )^2   ]                                                                            
     ycenter=hlist[0].GetBinContent (iBin) ##F_0                                                                                                       
     Sum=0
@@ -45,14 +49,14 @@ def SetError_symmhessian_iBin(hlist,iBin,evy_up,evy_dn):
         y_=h.GetBinContent (iBin) ##F_i                                                                                                               
         Sum+= (ycenter-y_)**2
     sigma=math.sqrt(Sum)
-    evy_up.append=(sigma)
+    evy_up.append(sigma)
     evy_dn.append(sigma)
 
 def SetError_symmhessian_as_iBin(hlist,iBin,evy_up,evy_dn):
     #symhessian:sigma = sigma+ = sigma- = sqrt[ Sum{i=1~N}( F_i - F_0  )^2   ]                                                                            
     #a_s -> last two elements ->F+, F-                                                                                                                    
     # sigma_as = abs(F+ - F-) /2                                                                                                                          
-
+    if iBin==0 :print ">>>>[combination] symmhessian+as"
     ycenter=hlist[0].GetBinContent (iBin) ##F_0                                                                                                       
     Sum=0
     for h in hlist[0:-2]:
@@ -62,46 +66,47 @@ def SetError_symmhessian_as_iBin(hlist,iBin,evy_up,evy_dn):
         
         #sigma_as                                                                                                                                         
         
-    y1_ = hlist[-1].h.GetBinContent (iBin)
-    y2_ = hlist[-2].h.GetBinContent (iBin)
+    y1_ = hlist[-1].GetBinContent (iBin)
+    y2_ = hlist[-2].GetBinContent (iBin)
     sigma_as= abs(y1_-y2_)/2
 
     sigma=math.sqrt(sigma**2 + sigma_as**2)
 
-    evy_up.append=(sigma)
+    evy_up.append(sigma)
     evy_dn.append(sigma)
-def SetError_replica_iBin(hlist,iBin,evy_up,evy_dn):
-    ##replica   :sigma = sigma+ = sigma- = sqrt[  N_rep/(N_rep-1)  * (<F^2> - <F>^2   )   ]
-    ycenter=hlist[0].GetBinContent (iBin) ##F_0                                                                                                       
+def SetError_replicas_iBin(hlist,iBin,evy_up,evy_dn):
+    if iBin==0 :print ">>>>[combination] replicas"
+    ##replicas   :sigma = sigma+ = sigma- = sqrt[  N_rep/(N_rep-1)  * (<F^2> - <F>^2   )   ]
+    
     Sum=0
     Sum2=0 ## sum of squared values                                                                                                                   
-    for h in hlist:
+    for h in hlist[1:]:
         y_=h.GetBinContent (iBin) ##F_i                                                                                                               
         Sum+= y_
         Sum2+=y_**2
-        Nrep=len(hlist)
-        avg=Sum/Nrep
-        avg_sq=Sum2/Nrep
-        
+    N_rep = float(len(hlist)-1)
+    avg=Sum/N_rep
+    avg_sq=Sum2/N_rep
+    
     sigma= math.sqrt( N_rep/(N_rep-1) *( avg_sq - avg**2  )   )
 
-    evy_up.append=(sigma)
+    evy_up.append(sigma)
     evy_dn.append(sigma)
 
 
-def SetError_replica_as_iBin(hlist,iBin,evy_up,evy_dn):
-    ##replica   :sigma = sigma+ = sigma- = sqrt[  N_rep/(N_rep-1)  * (<F^2> - <F>^2   )   ]
-
-    ycenter=hlist[0].GetBinContent (iBin) ##F_0                                                                                                       
+def SetError_replicas_as_iBin(hlist,iBin,evy_up,evy_dn):
+    ##replicas   :sigma = sigma+ = sigma- = sqrt[  N_rep/(N_rep-1)  * (<F^2> - <F>^2   )   ]
+    if iBin==0 :print ">>>>[combination] replicas+as"
+    
     Sum=0
     Sum2=0 ## sum of squared values                                                                                                                   
-    for h in hlist[0,-2]:
+    for h in hlist[0:-2]:
         y_=h.GetBinContent (iBin) ##F_i                                                                                                               
         Sum+= y_
         Sum2+=y_**2
-    Nrep=len(hlist)
-    avg=Sum/Nrep
-    avg_sq=Sum2/Nrep
+    N_rep=float(len(hlist)-1)
+    avg=Sum/N_rep
+    avg_sq=Sum2/N_rep
     
     sigma= math.sqrt( N_rep/(N_rep-1) *( avg_sq - avg**2  )   )
     
@@ -109,17 +114,17 @@ def SetError_replica_as_iBin(hlist,iBin,evy_up,evy_dn):
     
     #sigma_as                                                                                                                                         
     
-    y1_ = hlist[-1].h.GetBinContent (iBin)
-    y2_ = hlist[-2].h.GetBinContent (iBin)
+    y1_ = hlist[-1].GetBinContent (iBin)
+    y2_ = hlist[-2].GetBinContent (iBin)
     sigma_as= abs(y1_-y2_)/2
     
     sigma=math.sqrt(sigma**2 + sigma_as**2)
     
-    evy_up.append=(sigma)
+    evy_up.append(sigma)
     evy_dn.append(sigma)
 
 def SetError_hessian_iBin(hlist,iBin,evy_up,evy_dn):
-
+    if iBin==0 :print ">>>>[combination] hessian"
     #hessian   :up-element & down-element                                                                                                                 
     ##sigma+ = sqrt[ Sum[ max(F_i_up - F_0 , F_i_down - F_0, 0 )^2   ]   ]                                                                                
     ##sigma- = sqrt[ Sum[ max(F_0 - F_i_up , F+0 - F_i_down, 0 )^2   ]   ]                                                                                
@@ -138,16 +143,18 @@ def SetError_hessian_iBin(hlist,iBin,evy_up,evy_dn):
     sigma1=math.sqrt(Sum1)
     sigma2=math.sqrt(Sum2)
 
-    evy_up.append=(sigma1)
+    evy_up.append(sigma1)
     evy_dn.append(sigma2)
 
 
 def SetError_HERAPDF20_VAR_iBin(hlist,iBin,evy_up,evy_dn):
+    if iBin==0 :print ">>>>[combination] custom, HERAPDF20_VAR"
     ycenter=hlist[0].GetBinContent (iBin) ##F_0                                                                                                   
 
     ##model error set(1-10)                                                                                                                       
     Sum1=0
     for h in hlist[1:10]:
+        
         y_=h.GetBinContent (iBin)
         
         Sum1+=(ycenter-y_)**2
@@ -156,23 +163,24 @@ def SetError_HERAPDF20_VAR_iBin(hlist,iBin,evy_up,evy_dn):
 
     ##Parametrization error set(11-13)                                                                                                            
     diff_max=0
-    for h in hlist[11-13]:
+    for h in hlist[11:13]:
         y_=h.GetBinContent (iBin)
         if abs(y_-ycenter) > diff_max : diff_max=abs(y_-ycenter)
     sigma_para=diff_max
 
     ## total sigma                                                                                                                                
     sigma=math.sqrt(sigma_model**2 + sigma_para**2)
-    evy_up.append=(sigma)
+    evy_up.append(sigma)
     evy_dn.append(sigma)
 
 
 def SetError_CT14qed_inc_iBin(hlist,iBin,evy_up,evy_dn):
+    if iBin==0 :print ">>>>[combination] custom, CT14qed_inc"
     ##Not sure this calculation is right
     ycenter=hlist[0].GetBinContent (iBin) ##F_0
     y_68 = hlist[11].GetBinContent (iBin) #p0==0.11& ->CL 68%
     sigma=abs(ycenter-y_68)
-    evy_up.append=(sigma)
+    evy_up.append(sigma)
     evy_dn.append(sigma)
 
 
@@ -193,7 +201,7 @@ def GetCombinedHisto(hlist,combination,name):
     vy=array('f')
     evy_dn=array('f')
     evy_up=array('f')
-    
+    estatv=array('f')
     
     ##--Central value--##
     nbin=hlist[0].GetNbinsX()
@@ -201,7 +209,7 @@ def GetCombinedHisto(hlist,combination,name):
         vx.append(  hlist[0].GetBinCenter (iBin))
         evx.append( hlist[0].GetBinWidth (iBin) / 2.)
         vy.append(  hlist[0].GetBinContent (iBin))
-
+        estatv.append( hlist[0].GetBinError (iBin))
 
 
     ##--Set Sigma up/down
@@ -226,15 +234,15 @@ def GetCombinedHisto(hlist,combination,name):
 
     
 
-    elif combination=='replica':
-    ##replica   :sigma = sigma+ = sigma- = sqrt[  N_rep/(N_rep-1)  * (<F^2> - <F>^2   )   ]
+    elif combination=='replicas':
+    ##replicas   :sigma = sigma+ = sigma- = sqrt[  N_rep/(N_rep-1)  * (<F^2> - <F>^2   )   ]
         for iBin in range(1, nbin+1):
-            SetError_replica_iBin(hlist,iBin,evy_up,evy_dn)
+            SetError_replicas_iBin(hlist,iBin,evy_up,evy_dn)
 
-    elif combination=='replica+as':
-    ##replica   :sigma = sigma+ = sigma- = sqrt[  N_rep/(N_rep-1)  * (<F^2> - <F>^2   )   ]
+    elif combination=='replicas+as':
+    ##replicas   :sigma = sigma+ = sigma- = sqrt[  N_rep/(N_rep-1)  * (<F^2> - <F>^2   )   ]
         for iBin in range(1, nbin+1):
-            SetError_replica_as_iBin(hlist,iBin,evy_up,evy_dn)
+            SetError_replicas_as_iBin(hlist,iBin,evy_up,evy_dn)
 
 
 
@@ -279,8 +287,19 @@ def GetCombinedHisto(hlist,combination,name):
                 SetError_CT14qed_inc_iBin(hlist,iBin,evy_up,evy_dn)
 
     elif combination=='':
-            evy_up.append=(sigma)
+        for iBin in range(1, nbin+1):
+            evy_up.append(0)
+            evy_dn.append(0)
+
+    elif combination=='statonly':
+        if iBin==0 :print ">>>>[combination] statonly"
+
+        for iBin in range(1, nbin+1):
+            sigma=hlist[0].GetBinError(iBin)
+        
+            evy_up.append(sigma)
             evy_dn.append(sigma)
+    
 
     else:
         print "[GetCombinedHisto] Cannot Find combination method for "+name+' '+combination
@@ -290,9 +309,13 @@ def GetCombinedHisto(hlist,combination,name):
 
     
     tgrCombine=ROOT.TGraphAsymmErrors(nbin)
+    
+    #print "len(vx)=",len(vx)
+    #print "nbin=",nbin
+    
     for iBin in range(0, len(vx)) :
-        print "evy_dn[iBin]=",evy_dn[iBin]
-        print "evy_up[iBin]",evy_up[iBin]
+        #print "evy_dn[iBin]=",evy_dn[iBin]
+        #print "evy_up[iBin]",evy_up[iBin]
         tgrCombine.SetPoint (iBin,vx[iBin],vy[iBin])
         tgrCombine.SetPointError(iBin, evx[iBin], evx[iBin], evy_dn[iBin], evy_up[iBin])
     

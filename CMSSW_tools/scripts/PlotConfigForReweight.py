@@ -1,3 +1,4 @@
+'''
 xname=[]
 var_names=['pt','mass','eta','phi']
 object_names=['Zmuon','Zelectron','dimuon','dielectron','muon1','muon2','electron1','electron2']
@@ -5,7 +6,7 @@ object_names=['Zmuon','Zelectron','dimuon','dielectron','muon1','muon2','electro
 for var in var_names:
     for obj in object_names:
         xname.append(obj+'_'+var)
-
+'''
 
 
 ##---weight info
@@ -18,15 +19,34 @@ rwgt_info['mg260NLO']={}
 rwgt_info['mg261NLO']={}
 rwgt_info['mg265NLO']={}
 
+rwgt_info['mg260LO']['variation']={}
+rwgt_info['mg261LO']['variation']={}
+rwgt_info['mg265LO']['variation']={}
+
+rwgt_info['mg260LO']['color']=600 ##Blue
+rwgt_info['mg261LO']['color']=616 ##Magenta
+rwgt_info['mg265LO']['color']=632 ##Red
+
+rwgt_info['mg260NLO']['color']=600 ##Blue
+rwgt_info['mg261NLO']['color']=616 ##Magenta
+rwgt_info['mg265NLO']['color']=632 ##Red
+
+
+
+
 rwgt_info['mg260LO']['process']={ ##Processes and their Histogram path
-'dyellell01234j_5f_LO_MLM':'/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg260_master_dyellell01234j_5f_LO_MLM__5000evt/combined_histo.root',
+    'dyellell01234j_5f_LO_MLM':{'histo_path':'/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg260_master_dyellell01234j_5f_LO_MLM__5000evt/histoset.root'},
+    'dyellell01234j_5f_LO_MLM_pdfwgt_T':{'histo_path':'/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg260_master_dyellell01234j_5f_LO_MLM_pdfwgt_T__5000evt/histoset.root'},
+
 }
 
 rwgt_info['mg261LO']['process']={ ##Processes and their Histogram path
-'dyellell01234j_5f_LO_MLM':'/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg261_dyellell01234j_5f_LO_MLM__5000evt/combined_histo.root',
+    'dyellell01234j_5f_LO_MLM':{'histo_path':'/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg261_dyellell01234j_5f_LO_MLM__5000evt/histoset.root'},
+    'dyellell01234j_5f_LO_MLM_pdfwgt_T':{'histo_path':'/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg261_dyellell01234j_5f_LO_MLM_pdfwgt_T__5000evt/histoset.root'},
 }
 rwgt_info['mg265LO']['process']={ ##Processes and their Histogram path
-'dyellell01234j_5f_LO_MLM':'/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg265_dyellell01234j_5f_LO_MLM__5000evt/combined_histo.root',
+    'dyellell01234j_5f_LO_MLM':{'histo_path':'/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg265_dyellell01234j_5f_LO_MLM__5000evt/histoset.root'},
+    'dyellell01234j_5f_LO_MLM_pdfwgt_T':{'histo_path':'/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg265_dyellell01234j_5f_LO_MLM_pdfwgt_T__5000evt/histoset.root'},
 }
 
 
@@ -148,7 +168,8 @@ rwgt_info['mg260LO']['variation']['13163']={
     'idx':[375]
 }
 rwgt_info['mg260LO']['variation']['13167']={
-    'combination':"CT14nlo as=0.120",
+    'name':'CT14nlo_as_0120',
+    'combination':"",
     'idx':[376]
 }
 rwgt_info['mg260LO']['variation']['13200']={
@@ -272,15 +293,22 @@ rwgt_info['mg265LO']['variation']=rwgt_info['mg260LO']['variation']
 
 #---mg260NLO
 
+
+
 rwgt_info['mg260NLO']['process']={ ##Processes and their Histogram path                                                                                                           
-'dyellell012j_5f_NLO_FXFX':'/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg260_master_dyellell012j_5f_NLO_FXFX__5000evt__5000evt/combined_histo.root',
+'dyellell012j_5f_NLO_FXFX':{'histo_path':'/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg260_master_dyellell012j_5f_NLO_FXFX__5000evt/histoset.root'},
 }
 rwgt_info['mg261NLO']['process']={ ##Processes and their Histogram path                                                                                                           
-'dyellell012j_5f_NLO_FXFX':'/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg260_master_dyellell012j_5f_NLO_FXFX__5000evt__5000evt/combined_histo.root',
+'dyellell012j_5f_NLO_FXFX':{'histo_path':'/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg261_dyellell012j_5f_NLO_FXFX__5000evt/histoset.root'},
 }
 rwgt_info['mg265NLO']['process']={ ##Processes and their Histogram path                                                                                                           
-'dyellell012j_5f_NLO_FXFX':'/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg260_master_dyellell012j_5f_NLO_FXFX__5000evt__5000evt/combined_histo.root',
+'dyellell012j_5f_NLO_FXFX':{'histo_path':'/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg265_dyellell012j_5f_NLO_FXFX__5000evt/histoset.root'},
 }
+
+
+rwgt_info['mg260NLO']['variation']={}
+rwgt_info['mg261NLO']['variation']={}
+rwgt_info['mg265NLO']['variation']={}
 
 
 
@@ -299,7 +327,7 @@ rwgt_info['mg260NLO']['variation']['306000']={
 
 rwgt_info['mg260NLO']['variation']['322500']={
     'name':'NNPDF31_nnlo_as_0108',
-    'combination':"NNPDF31_nnlo_as_0110",
+    'combination':"",
     'idx':[112]
 }
 rwgt_info['mg260NLO']['variation']['322700']={
@@ -369,7 +397,8 @@ rwgt_info['mg260NLO']['variation']['13163']={
     'idx':[339]
 }
 rwgt_info['mg260NLO']['variation']['13167']={
-    'combination':"CT14nlo as=0.120",
+    'name':'CT14nlo_as_0120',
+    'combination':"",
     'idx':[340]
 }
 rwgt_info['mg260NLO']['variation']['13200']={

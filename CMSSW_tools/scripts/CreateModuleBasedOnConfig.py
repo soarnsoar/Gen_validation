@@ -5,7 +5,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("--config", help="config file path")
 parser.add_argument("--rootfile", help="rootfile file path")
-
+#parser.add_argument("--cc", help="cc module file")
 args = parser.parse_args()
 
 if args.config:
@@ -20,6 +20,11 @@ else:
     print "need --rootfile option"
     exit()
 
+#if args.cc:
+#    cc=args.cc
+#else:
+#    print "need --cc option"
+#    exit()
 
 
 def GetNweight(rootfile):
@@ -95,7 +100,7 @@ if __name__ == "__main__":
     f=open(config)
     exec(f)
     f.close()
-    cc='HistoFactoryDYKinematics.cc'
+    #cc='HistoFactoryDYKinematics.cc'
 
     Nweight=GetNweight(rootfile)
 

@@ -28,8 +28,8 @@ else:
     exit()
 
 
-def CreateConfigPy(HistoConfig,rootfile,seed):
-    ccname='HistoFactoryDYKinematics'
+def CreateConfigPy(cc,HistoConfig,rootfile,seed):
+    ccname=cc.split('.cc')[0]
     
     for key in HistoConfig:
         
@@ -64,7 +64,7 @@ process.source = cms.Source("PoolSource",
       )
 )
 
-process.DYValidation = cms.EDAnalyzer('HistoFactoryDYKinematics__{2}__',
+process.DYValidation = cms.EDAnalyzer('{2}',
 
                               genSrc = cms.InputTag("genParticles")
 #prunedGenParticles
@@ -72,7 +72,7 @@ process.DYValidation = cms.EDAnalyzer('HistoFactoryDYKinematics__{2}__',
 
 
 process.p = cms.Path(process.DYValidation)
-        '''.format(key,rootfile,key,seed)
+        '''.format(key,rootfile,ccToRun,seed)
         
         fnew.close()
 
@@ -87,7 +87,7 @@ if __name__ == "__main__":
     exec(f)
     f.close()
     
-    CreateConfigPy(HistoConfig,rootfile,seed)
+    CreateConfigPy(cc,HistoConfig,rootfile,seed)
     
 
     ##HistoConfig['varname']

@@ -1,0 +1,8 @@
+'''
+void SaveObjectToFile(TString filepath, TObject *a){
+  TFile outputFile (filepath,"RECREATE");
+  a->Write();
+  outputFile.Write();
+  outputFile.Close();
+}
+'''

@@ -3,16 +3,19 @@
 
 #Nweight=1080
 
-
-
+##--HistoFacoryModule Name
+cc='HistoFactoryDYKinematics.cc'
 
 HistoConfig={}
 var_names=['pt','mass','eta','phi']
 object_names=['Zmuon','Zelectron','dimuon','dielectron','muon1','muon2','electron1','electron2']
-
+xname=[]
 
 for obj in object_names:
     for var in var_names:        
+
+        xname.append(obj+'_'+var)
+
         HistoConfig[obj+"_"+var]={'title':obj+"_"+var,'varname':obj+"_"+var, 'nbin':50, 'xmin':0, 'xmax':100}
         
         if 'di' in obj or 'Z' in obj:##di lepton OR Z boson
