@@ -141,44 +141,39 @@ for dic in ToRun:
     #    print '[denominator]',deno_config,'[numerator]',nume_config,'[proc]',proc
     for x in HistoConfig:
         jobname=nume_config+'_'+nume_proc+'_over_'+deno_config+'_'+deno_proc+'__'+x
-        os.chdir(MYWORKDIR)                                                                                                                                                   
-        os.system('mkdir -p '+'JOBDIR__'+jobname)                                                                                                                               
-        os.chdir('JOBDIR__'+jobname)                                                                                                                                            
-        f=open(jobname+'.sh','w')                                                                                                                                             
-        if os.getenv('CMSSW_BASE'):                                                                                                                                           
-            CMSSW_BASE=os.getenv('CMSSW_BASE')                                                                                                                                
-        else: exit()                                                                                                                                                          
-                
-                    
-        f.write('#!/bin/bash\n')                                                                                                                                              
-        f.write('StartTime=$(date +%s)\n')                                                                                                                                    
-        f.write('export VO_CMS_SW_DIR=/cvmfs/cms.cern.ch\n')                                                                                                                  
-        f.write('export SCRAM_ARCH='+os.getenv('SCRAM_ARCH')+'\n')                                                                                                            
-        f.write('source $VO_CMS_SW_DIR/cmsset_default.sh\n')                                                                                                                  
-        f.write('echo "==Extract Tarball=="\n')                                                                                                                               
-        f.write('tar -xf INPUT__submit__'+jobname+'.tar.gz\n')                                                                                                           
-        f.write('cd CMSSW'+CMSSW_BASE.split('CMSSW')[-1]+'/src\n'   )                                                                                                         
-        f.write('scram build ProjectRename\n')                                                                                                                                
-        f.write('eval `scramv1 runtime -sh`\n')                                                                                                                               
-        f.write('cd ../../\n')                                                                                                                                                
-                    
-        
-        
-        
+        os.chdir(MYWORKDIR)
+        os.system('mkdir -p '+'JOBDIR__'+jobname)
+        os.chdir('JOBDIR__'+jobname)
+        f=open(jobname+'.sh','w')
+        if os.getenv('CMSSW_BASE'):
+            CMSSW_BASE=os.getenv('CMSSW_BASE')
+        else: exit()
+        f.write('#!/bin/bash\n')
+        f.write('StartTime=$(date +%s)\n')
+        f.write('export VO_CMS_SW_DIR=/cvmfs/cms.cern.ch\n')
+        f.write('export SCRAM_ARCH='+os.getenv('SCRAM_ARCH')+'\n')
+        f.write('source $VO_CMS_SW_DIR/cmsset_default.sh\n')
+        f.write('echo "==Extract Tarball=="\n')
+        f.write('tar -xf INPUT__submit__'+jobname+'.tar.gz\n')
+        f.write('cd CMSSW'+CMSSW_BASE.split('CMSSW')[-1]+'/src\n'   )
+        f.write('scram build ProjectRename\n')
+        f.write('eval `scramv1 runtime -sh`\n')
+        f.write('cd ../../\n')
         for variation in rwgt_info[deno_config]['variation']:
-            command='runComparisonPlot.py --deno_config "'+deno_config+'" --deno_proc "'+deno_proc+'" --nume_config "'+nume_config+'" --nume_proc "'+nume_proc+'" --x "'+x+'" --var "'+variation+'" --yaxis_ratio "'+nume_config+'/'+deno_config+'" --yaxis "Normalized Nevents" --title "'+rwgt_info[deno_config]['variation'][variation]['name']+'__'+dic['title']+'" --dirname "'+nume_config+'__'+nume_proc+'__over__'+deno_config+'__'+deno_proc+'" --deno_alias "'+deno_alias+'" --nume_alias "'+nume_alias+'"'                
-            
+            command='runComparisonPlot.py --deno_config "'+deno_config+'" --deno_proc "'+deno_proc+'" --nume_config "'+nume_config+'" --nume_proc "'+nume_proc+'" --x "'+x+'" --var "'+variation+'" --yaxis_ratio "'+nume_alias+'/'+deno_alias+'" --yaxis "Normalized Nevents" --title "'+rwgt_info[deno_config]['variation'][variation]['name']+'__'+dic['title']+'" --dirname "'+nume_config+'__'+nume_proc+'__over__'+deno_config+'__'+deno_proc+'" --deno_alias "'+deno_alias+'" --nume_alias "'+nume_alias+'"'+' --test_stat Chi2Test'
+            f.write(command+'\n')
+            command='runComparisonPlot.py --deno_config "'+deno_config+'" --deno_proc "'+deno_proc+'" --nume_config "'+nume_config+'" --nume_proc "'+nume_proc+'" --x "'+x+'" --var "'+variation+'" --yaxis_ratio "'+nume_alias+'/'+deno_alias+'" --yaxis "Normalized Nevents" --title "'+rwgt_info[deno_config]['variation'][variation]['name']+'__'+dic['title']+'" --dirname "'+nume_config+'__'+nume_proc+'__over__'+deno_config+'__'+deno_proc+'" --deno_alias "'+deno_alias+'" --nume_alias "'+nume_alias+'"'+' --test_stat KolmogorovTest'
             f.write(command+'\n')
         f.write('EndTime=$(date +%s)\n')
         f.write('echo "runtime : $(($EndTime - $StartTime)) sec"\n')
-        f.write('echo "@@JOB FINISHED@@"\n')                                                                                                                                  
-        f.close()                                                                                                                                                             
-        os.system('chmod u+x '+jobname+'.sh')                                                                                                                                 
-        os.system('mkBatch.py --exe '+jobname+'.sh')                                                                                                                          
-        #name='submit__'+''.join(exe.split('.sh')[:-1])                                                                                                                       
-        command='condor_submit submit__'+jobname+'.jds > submit__'+jobname+'.jid'                                                                                             
-        print "[JOB Submitted]"+command                                                                                                                                       
-        os.system(command)                                                                                                                                                    
+        f.write('echo "@@JOB FINISHED@@"\n')
+        f.close()
+        os.system('chmod u+x '+jobname+'.sh')
+        os.system('mkBatch.py --exe '+jobname+'.sh')
+        #name='submit__'+''.join(exe.split('.sh')[:-1])
+        command='condor_submit submit__'+jobname+'.jds > submit__'+jobname+'.jid'
+        print "[JOB Submitted]"+command 
+        os.system(command)
       
 
         

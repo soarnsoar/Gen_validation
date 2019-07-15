@@ -153,8 +153,10 @@ for config in ConfigToRun:
                     hlist.append(copy.deepcopy(h))
                 h_combined=GetCombinedHisto(hlist,combination,name)
                 h_statonly=GetCombinedHisto(hlist,'statonly',name)
+                
                 ROOT.SaveObjectToFile(savepath+'/combined_histo__'+var+'__'+x+'.root',h_combined)
                 ROOT.SaveObjectToFile(savepath+'/combined_histo__'+var+'__'+x+'__'+'statonly'+'.root',h_statonly)
+                
                 #this_rwgt_info['process'][proc]['histogram']=copy.deepcopy(h_combined)
                 del hlist
                 

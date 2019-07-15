@@ -22,6 +22,10 @@ parser.add_argument('--yaxis_ratio',help='title of yaxis of ratio')
 parser.add_argument('--title', help='title of canvas')
 parser.add_argument('--dirname', help='name of DIR to save')
 
+parser.add_argument('--test_stat', help='name of stat test(e.g chi2)')
+
+parser.add_argument('--pvalue_threshold', help='pvalue threshold of of the stat test')
+
 args = parser.parse_args()
 
 
@@ -100,8 +104,18 @@ if args.dirname:
 else:
     print "--dirname is needed"
 
-
-
+if args.test_stat:
+    test_stat=args.test_stat
+else:
+    #print "default stat test :: Chi2Test"
+    print "default stat test :: Chi2Test,KolmogorovTest"
+    test_stat='both'
+    ##https://root.cern.ch/doc/master/classTH1.html#a6c281eebc0c0a848e7a0d620425090a5
+if args.pvalue_threshold:
+    pvalue_threshold=args.pvalue_threshold
+else:
+    print "p-value threshold -->0.00001"
+    pvalue_threshold=0.00001
 
 import ROOT
 import os
@@ -178,9 +192,10 @@ color1=rwgt_info[nume_config]['color']
 if color0==color1:
     color0=ROOT.kBlue
     color1=ROOT.kRed
-    
-CompareTGraphAsymmErrorsWithStat(xaxis,yaxis,yaxis_ratio,title,h1,h1stat,label1,color1,h0,h0stat,label0,color0,store_filepath,True)
-    
+
+CompareTGraphAsymmErrorsWithStat(xaxis,yaxis,yaxis_ratio,title,h1,h1stat,label1,color1,h0,h0stat,label0,color0,store_filepath,test_stat,pvalue_threshold,True)
+
+
 del color1
 del h1
 del h1stat
