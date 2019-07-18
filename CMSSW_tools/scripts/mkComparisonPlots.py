@@ -104,19 +104,27 @@ mg265__dyellell01234j_5f_LO_MLM__pdfwgt__T_over_F={
 
 
 
+mg260test__dyellell012j_5f_NLO_FXFX={
+    'title':'MG260__DY012j_NLO_test_diff_seed',
+    'deno':{'config':'mg260NLO_1','process':'dyellell012j_5f_NLO_FXFX','alias':'seed1'},
+    'nume':{'config':'mg260NLO_2', 'process':'dyellell012j_5f_NLO_FXFX','alias':'seed2' }
+}
+
+
+
 ToRun=[
 
-dyellell01234j_5f_LO_MLM__261_over_260,
-dyellell01234j_5f_LO_MLM__265_over_260,
-dyellell01234j_5f_LO_MLM__265_over_261,
+#dyellell01234j_5f_LO_MLM__261_over_260,
+#dyellell01234j_5f_LO_MLM__265_over_260,
+#dyellell01234j_5f_LO_MLM__265_over_261,
 
-dyellell01234j_5f_LO_MLM_pdfwgt_T__261_over_260,
-dyellell01234j_5f_LO_MLM_pdfwgt_T__265_over_260,
-dyellell01234j_5f_LO_MLM_pdfwgt_T__265_over_261,
+#dyellell01234j_5f_LO_MLM_pdfwgt_T__261_over_260,
+#dyellell01234j_5f_LO_MLM_pdfwgt_T__265_over_260,
+#dyellell01234j_5f_LO_MLM_pdfwgt_T__265_over_261,
 
-dyellell012j_5f_NLO_FXFX__261_over_260,
-dyellell012j_5f_NLO_FXFX__265_over_260,
-dyellell012j_5f_NLO_FXFX__265_over_261,
+#dyellell012j_5f_NLO_FXFX__261_over_260,
+#dyellell012j_5f_NLO_FXFX__265_over_260,
+#dyellell012j_5f_NLO_FXFX__265_over_261,
 
 mg260__dyellell01234j_5f_LO_MLM__pdfwgt__T_over_F,
 mg261__dyellell01234j_5f_LO_MLM__pdfwgt__T_over_F,

@@ -1,0 +1,11 @@
+Script started on Wed Jul 10 19:57:33 2019
+ls
+]0;jhchoi@ui20:~/gridvalidation/mg265_validation/event_gen/CMSSW_10_2_15_patch2/src/Gen_validation/CMSSW_tools[?1034h[jhchoi@ui20 CMSSW_tools]$ ls
+[0m[38;5;27mplugins[0m  [38;5;27mpython[0m  [38;5;27mrun_command[0m  [38;5;27mscripts[0m  typescript
+]0;jhchoi@ui20:~/gridvalidation/mg265_validation/event_gen/CMSSW_10_2_15_patch2/src/Gen_validation/CMSSW_tools[jhchoi@ui20 CMSSW_tools]$ c scriptdir
+bash: scriptdir: command not found
+]0;jhchoi@ui20:~/gridvalidation/mg265_validation/event_gen/CMSSW_10_2_15_patch2/src/Gen_validation/CMSSW_tools[jhchoi@ui20 CMSSW_tools]$ ls
+[0m[38;5;27mplugins[0m  [38;5;27mpython[0m  [38;5;27mrun_command[0m  [38;5;27mscripts[0m  typescript
+]0;jhchoi@ui20:~/gridvalidation/mg265_validation/event_gen/CMSSW_10_2_15_patch2/src/Gen_validation/CMSSW_tools[jhchoi@ui20 CMSSW_tools]$ dc  exit
+
+Script done on Wed Jul 10 19:57:39 2019

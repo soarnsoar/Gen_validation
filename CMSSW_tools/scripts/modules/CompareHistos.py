@@ -742,8 +742,13 @@ if __name__ == "__main__":
     ##-for test-
     CMSSW_BASE=os.getenv('CMSSW_BASE')
     ROOT.gROOT.LoadMacro(CMSSW_BASE+'/src/Gen_validation/CMSSW_tools/scripts/modules/GetHisto.C+')
-    h2path='/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg260_master_dyellell01234j_5f_LO_MLM__5000evt/combined_histo/'
-    h1path='/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg265_dyellell01234j_5f_LO_MLM__5000evt/combined_histo/'
+    #h2path='/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg260_master_dyellell01234j_5f_LO_MLM__5000evt/combined_histo/'
+    h2path='/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg260_master_dyellell01234j_5f_LO_MLM_pdfwgt_T__5000evt/combined_histo/'
+    #h2path='/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_TestWithinVersion_mg260_2/combined_histo/'
+
+    h1path='/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg260_master_dyellell01234j_5f_LO_MLM__5000evt/combined_histo/'
+    #h1path='/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_HistoFactory__GENEVT_mg265_dyellell01234j_5f_LO_MLM__5000evt/combined_histo/'
+    #h1path='/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_TestWithinVersion_mg260_1/combined_histo/'
 
     '''
     h1=ROOT.GetTGraphAsymmErrors(h1path+'/combined_histo__306000__dimuon_mass.root',"Graph")
@@ -755,10 +760,10 @@ if __name__ == "__main__":
     CompareTGraphAsymmErrorsWithStat("dimuon_mass",'LHAPDF306000', h1, h1stat,"MG5 v260",ROOT.kRed,h2,h2stat,"MG5 v261",ROOT.kBlue,False)
 
     '''
-    #h1=ROOT.GetTGraphAsymmErrors(h1path+'/combined_histo__306000__dimuon_mass.root',"Graph")
-    #h2=ROOT.GetTGraphAsymmErrors(h2path+'/combined_histo__306000__dimuon_mass.root',"Graph")
-    #h1stat=ROOT.GetTGraphAsymmErrors(h1path+'/combined_histo__306000__dimuon_mass__statonly.root',"Graph")
-    #h2stat=ROOT.GetTGraphAsymmErrors(h2path+'/combined_histo__306000__dimuon_mass__statonly.root',"Graph")
+    h1=ROOT.GetTGraphAsymmErrors(h1path+'/combined_histo__306000__dimuon_mass.root',"Graph")
+    h2=ROOT.GetTGraphAsymmErrors(h2path+'/combined_histo__306000__dimuon_mass.root',"Graph")
+    h1stat=ROOT.GetTGraphAsymmErrors(h1path+'/combined_histo__306000__dimuon_mass__statonly.root',"Graph")
+    h2stat=ROOT.GetTGraphAsymmErrors(h2path+'/combined_histo__306000__dimuon_mass__statonly.root',"Graph")
     
 
 
@@ -768,14 +773,20 @@ if __name__ == "__main__":
     #h2stat=ROOT.GetTGraphAsymmErrors(h2path+'/combined_histo__muRmuF_default__dimuon_mass__statonly.root',"Graph")
 
 
-    h1=ROOT.GetTGraphAsymmErrors(h1path+'/combined_histo__muRmuF_default__dimuon_mass.root',"Graph")
-    h2=ROOT.GetTGraphAsymmErrors(h2path+'/combined_histo__muRmuF_default__dimuon_mass.root',"Graph")
-    h1stat=ROOT.GetTGraphAsymmErrors(h1path+'/combined_histo__muRmuF_default__dimuon_mass__statonly.root',"Graph")
-    h2stat=ROOT.GetTGraphAsymmErrors(h2path+'/combined_histo__muRmuF_default__dimuon_mass__statonly.root',"Graph")
+    #h1=ROOT.GetTGraphAsymmErrors(h1path+'/combined_histo__muRmuF_default__dimuon_mass.root',"Graph")
+    #h2=ROOT.GetTGraphAsymmErrors(h2path+'/combined_histo__muRmuF_default__dimuon_mass.root',"Graph")
+    #h1stat=ROOT.GetTGraphAsymmErrors(h1path+'/combined_histo__muRmuF_default__dimuon_mass__statonly.root',"Graph")
+    #h2stat=ROOT.GetTGraphAsymmErrors(h2path+'/combined_histo__muRmuF_default__dimuon_mass__statonly.root',"Graph")
+
+    #h1=ROOT.GetTGraphAsymmErrors(h1path+'/combined_histo__muRmuF__dimuon_mass.root',"Graph")
+    #h2=ROOT.GetTGraphAsymmErrors(h2path+'/combined_histo__muRmuF__dimuon_mass.root',"Graph")
+    #h1stat=ROOT.GetTGraphAsymmErrors(h1path+'/combined_histo__muRmuF__dimuon_mass__statonly.root',"Graph")
+    #h2stat=ROOT.GetTGraphAsymmErrors(h2path+'/combined_histo__muRmuF__dimuon_mass__statonly.root',"Graph")
 
 
     #(xaxis,yaxis,yaxis_ratio,title,h1,h1stat,label1,color1,h2,h2stat,label2,color2,store_file_path,test_stat,pvalue_threshold,do_norm=True)
-    CompareTGraphAsymmErrorsWithStat("dimuon_mass",'norm. nevents','mg265/mg260','muRmuF_default', h1, h1stat,"MG5 v265",ROOT.kRed,h2,h2stat,"MG5 v260",ROOT.kBlue,'./result.pdf','Chi2Test',0.00001,True)
+    #CompareTGraphAsymmErrorsWithStat("dimuon_mass",'norm. nevents','mg265/mg260','muRmuF_default', h1, h1stat,"MG5 v265",ROOT.kRed,h2,h2stat,"MG5 v260",ROOT.kBlue,'./result.pdf','Chi2Test',0.00001,True)
+    CompareTGraphAsymmErrorsWithStat("dimuon_mass",'norm. nevents','seed1/seed2','Test_with_same_v', h1, h1stat,"seed1",ROOT.kRed,h2,h2stat,"seed2",ROOT.kBlue,'./result.pdf','Chi2Test',0.00001,True)
     #CompareTGraphAsymmErrorsWithStat("dimuon_mass",'norm. nevents','mg261/mg260','muRmuF_default', h1, h1stat,"MG5 v261",ROOT.kRed,h1,h1stat,"MG5 v260",ROOT.kBlue,'./result.pdf','Chi2Test',0.00001,True)
 
     #canvas_name='test'

@@ -165,10 +165,23 @@ print "[Draw]"+x +'[variation]'+variation
 unit=''
 if 'pt' in x or 'mass' in x: unit=' [GeV]'
                     
-file0=rwgt_info[deno_config]['process'][deno_proc]['histo_path'].replace('/histoset.root','/combined_histo/combined_histo__'+variation+'__'+x+'.root'    )
-file0_stat=rwgt_info[deno_config]['process'][deno_proc]['histo_path'].replace('/histoset.root','/combined_histo/combined_histo__'+variation+'__'+x+'__statonly.root'    )
-file1=rwgt_info[nume_config]['process'][nume_proc]['histo_path'].replace('/histoset.root','/combined_histo/combined_histo__'+variation+'__'+x+'.root'    )
-file1_stat=rwgt_info[nume_config]['process'][nume_proc]['histo_path'].replace('/histoset.root','/combined_histo/combined_histo__'+variation+'__'+x+'__statonly.root'    )
+#file0=rwgt_info[deno_config]['process'][deno_proc]['histo_path'].replace('/histoset.root','/combined_histo/combined_histo__'+variation+'__'+x+'.root'    )
+#file0_stat=rwgt_info[deno_config]['process'][deno_proc]['histo_path'].replace('/histoset.root','/combined_histo/combined_histo__'+variation+'__'+x+'__statonly.root'    )
+histopath=rwgt_info[deno_config]['process'][deno_proc]['histo_path']
+file0='/'.join(histopath.split('/')[:-1])+'/combined_histo/combined_histo__'+variation+'__'+x+'.root'
+file0_stat='/'.join(histopath.split('/')[:-1])+'/combined_histo/combined_histo__'+variation+'__'+x+'__statonly.root'
+histopath=rwgt_info[nume_config]['process'][deno_proc]['histo_path']
+file1='/'.join(histopath.split('/')[:-1])+'/combined_histo/combined_histo__'+variation+'__'+x+'.root'
+file1_stat='/'.join(histopath.split('/')[:-1])+'/combined_histo/combined_histo__'+variation+'__'+x+'__statonly.root'
+
+print '===[runComparisonPlot.py]==='
+print 'file0=',file0
+print 'file0_stat=',file0_stat
+print 'file1=',file1
+print 'file1_stat=',file1_stat
+
+#file1=rwgt_info[nume_config]['process'][nume_proc]['histo_path'].replace('/histoset.root','/combined_histo/combined_histo__'+variation+'__'+x+'.root'    )
+#file1_stat=rwgt_info[nume_config]['process'][nume_proc]['histo_path'].replace('/histoset.root','/combined_histo/combined_histo__'+variation+'__'+x+'__statonly.root'    )
 
 store_dir=MYWORKDIR+'/ComparisonPlots/'+dirname+'/'+variation+'/'
 os.system('mkdir -p '+store_dir)

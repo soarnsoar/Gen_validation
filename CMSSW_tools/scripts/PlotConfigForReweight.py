@@ -19,6 +19,11 @@ rwgt_info['mg260NLO']={}
 rwgt_info['mg261NLO']={}
 rwgt_info['mg265NLO']={}
 
+##--for test
+rwgt_info['mg260NLO_1']={}
+rwgt_info['mg260NLO_2']={}
+
+
 rwgt_info['mg260LO']['variation']={}
 rwgt_info['mg261LO']['variation']={}
 rwgt_info['mg265LO']['variation']={}
@@ -31,6 +36,8 @@ rwgt_info['mg260NLO']['color']=600 ##Blue
 rwgt_info['mg261NLO']['color']=616 ##Magenta
 rwgt_info['mg265NLO']['color']=632 ##Red
 
+rwgt_info['mg260NLO_1']['color']=600 ##Blue
+rwgt_info['mg260NLO_2']['color']=600 ##Blue
 
 
 
@@ -293,6 +300,12 @@ rwgt_info['mg265LO']['variation']=rwgt_info['mg260LO']['variation']
 
 #---mg260NLO
 
+rwgt_info['mg260NLO_1']['process']={ ##Processes and their Histogram path
+'dyellell012j_5f_NLO_FXFX':{'histo_path':'/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_TestWithinVersion_mg260_1/histoset_1.root'},
+}
+rwgt_info['mg260NLO_2']['process']={ ##Processes and their Histogram path
+'dyellell012j_5f_NLO_FXFX':{'histo_path':'/cms/ldap_home/jhchoi/gridvalidation/mg265_validation/event_gen/workdir/JOBDIR_TestWithinVersion_mg260_2/histoset_2.root'},
+}
 
 
 rwgt_info['mg260NLO']['process']={ ##Processes and their Histogram path                                                                                                           
@@ -522,3 +535,6 @@ rwgt_info['mg260NLO']['variation']['292200']={
 
 rwgt_info['mg261NLO']['variation']=rwgt_info['mg260NLO']['variation']
 rwgt_info['mg265NLO']['variation']=rwgt_info['mg260NLO']['variation']
+
+rwgt_info['mg260NLO_1']['variation']=rwgt_info['mg260NLO']['variation']
+rwgt_info['mg260NLO_2']['variation']=rwgt_info['mg260NLO']['variation']
