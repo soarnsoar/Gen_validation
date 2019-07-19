@@ -90,8 +90,8 @@ class MG_gridpackGEN():
                 print "[condor schedd patch] already done"
             else:
                 f_source_condor=open(self.MGGENDIR+'/Utilities/source_condor.sh','a')
-                f_source_condor.write('export _condor_SCHEDD_HOST=bigbird17.cern.ch')
-                f_source_condor.write('export _condor_CREDD_HOST=bigbird17.cern.ch')
+                f_source_condor.write('export _condor_SCHEDD_HOST=bigbird17.cern.ch\n')
+                f_source_condor.write('export _condor_CREDD_HOST=bigbird17.cern.ch\n')
                 f_source_condor.close()
                 os.system('touch '+self.MGGENDIR+'/Utilities/source_condor_patched')
                 
