@@ -5,5 +5,5 @@ define ell- = e- mu- ta-
 
 generate p p > ell+ ell- [QCD] @0
 
-output dyellell012j_5f_NLO_FXFX -nojpeg
+output dyellell0j_5f_NLO_FXFX -nojpeg
 
