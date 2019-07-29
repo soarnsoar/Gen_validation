@@ -23,6 +23,23 @@ class MG_gridpackGEN():
         self.HOSTNAME=socket.gethostname()
 
             
+
+    def add_private_model(self):
+        if os.path.isfile(self.MGGENDIR+'/PRIVATE_MODEL_ADDED'):
+            print "[private model patch] already done"
+        else:
+            f_origin=open(self.MGGENDIR+'/gridpack_generation.sh','r')
+            f_new=open(self.MGGENDIR+'/gridpack_generation_new.sh','w')
+            lines=f_origin.readlines()
+            for line in lines:
+
+                f_new.write(line)
+                if 'wget --no-check-certificate https://cms-project-generators.web.cern.ch/cms-project-generators/$model' in line:
+                    f_new.write('wget wget http://147.47.242.72/USER/jhchoi/generator_group/mg_model/$model\n')
+            f_origin.close()
+            f_new.close()
+            os.system('touch '+self.MGGENDIR+'/PRIVATE_MODEL_ADDED')
+            os.system('mv '+self.MGGENDIR+'/gridpack_generation_new.sh '+self.MGGENDIR+'/gridpack_generation.sh')
         
     def setup_genproductions(self):
 
@@ -76,7 +93,10 @@ class MG_gridpackGEN():
             command= 'find . -name "gridpack_generation.sh" | xargs perl -pi -e s/slc6/slc7/g'
             print command
             os.system(command)
-        
+
+        ##(5##) add private models to gridpack_generation.sh
+        self.add_private_model()
+
 
         ##(5)install some Genval tools
         command='git clone git@github.com:soarnsoar/Gen_validation.git'
