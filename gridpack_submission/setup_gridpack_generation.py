@@ -25,7 +25,7 @@ class MG_gridpackGEN():
             
 
     def add_private_model(self):
-        if os.path.isfile'PRIVATE_MODEL_ADDED'):
+        if os.path.isfile('PRIVATE_MODEL_ADDED'):
             print "[private model patch] already done"
         else:
             f_origin=open('gridpack_generation.sh','r')
