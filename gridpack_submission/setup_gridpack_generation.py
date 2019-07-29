@@ -33,9 +33,10 @@ class MG_gridpackGEN():
             lines=f_origin.readlines()
             for line in lines:
 
-                f_new.write(line)
+
                 if 'wget --no-check-certificate https://cms-project-generators.web.cern.ch/cms-project-generators/$model' in line:
-                    f_new.write('wget wget http://147.47.242.72/USER/jhchoi/generator_group/mg_model/$model\n')
+                    f_new.write('wget http://147.47.242.72/USER/jhchoi/generator_group/mg_model/$model\n')
+                f_new.write(line)
             f_origin.close()
             f_new.close()
             os.system('touch '+self.MGGENDIR+'/PRIVATE_MODEL_ADDED')
