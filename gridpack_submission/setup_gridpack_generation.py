@@ -25,11 +25,11 @@ class MG_gridpackGEN():
             
 
     def add_private_model(self):
-        if os.path.isfile(self.MGGENDIR+'/PRIVATE_MODEL_ADDED'):
+        if os.path.isfile'PRIVATE_MODEL_ADDED'):
             print "[private model patch] already done"
         else:
-            f_origin=open(self.MGGENDIR+'/gridpack_generation.sh','r')
-            f_new=open(self.MGGENDIR+'/gridpack_generation_new.sh','w')
+            f_origin=open('gridpack_generation.sh','r')
+            f_new=open('gridpack_generation_new.sh','w')
             lines=f_origin.readlines()
             for line in lines:
 
@@ -39,8 +39,8 @@ class MG_gridpackGEN():
                 f_new.write(line)
             f_origin.close()
             f_new.close()
-            os.system('touch '+self.MGGENDIR+'/PRIVATE_MODEL_ADDED')
-            os.system('mv '+self.MGGENDIR+'/gridpack_generation_new.sh '+self.MGGENDIR+'/gridpack_generation.sh')
+            os.system('touch PRIVATE_MODEL_ADDED')
+            os.system('mv gridpack_generation_new.sh gridpack_generation.sh')
         
     def setup_genproductions(self):
 
