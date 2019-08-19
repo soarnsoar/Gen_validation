@@ -1,0 +1,1721 @@
+change mode LO
+change helicity False 
+change rwgt_dir rwgt
+
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.2
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.2
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  1
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  -1
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  10
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  -10
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  100
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  -100
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0.2
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    -0.2
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0.5
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    -0.5
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    1
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    -1
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    4
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    -4
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    100
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    -100
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    200
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    -200
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    2.5
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    -2.5
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    5
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    -5
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    10
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    -10
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    20
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    -20
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    50
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    -50
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    200
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    -200
+   set Dim6 4 0
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0.1 
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 -0.1
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0.25 
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 -0.25 
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0.5
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 -0.5
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0.8 
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 -0.8 
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 1.5 
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 -1.5 
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 5
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 -5 
+   set Dim6 5   0
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0 
+   set Dim6 5   1
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0 
+   set Dim6 5   -1
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0 
+   set Dim6 5   2
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0 
+   set Dim6 5   -2
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0 
+   set Dim6 5   4
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0 
+   set Dim6 5   -4
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0 
+   set Dim6 5   10
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0 
+   set Dim6 5   -10
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0
+   set Dim6 5   40
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0 
+   set Dim6 5   -40
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0 
+   set Dim6 5   100
+launch
+   set Dim6 1  0
+   set Dim6 2    0
+   set Dim6 3    0
+   set Dim6 4 0 
+   set Dim6 5   -100
+   
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    0.2
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -0.2
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5 
+   set Dim6 2    0.2
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -0.2
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    0.2
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -0.2
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    0.2
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -0.2
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    0.2
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -0.2
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    0.2
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -0.2
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    0.5
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -0.5
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    0.5
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -0.5
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    0.5
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -0.5
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    0.5
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -0.5
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    0.5
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -0.5
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    0.5
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -0.5
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    15
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    15
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -15
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -15
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    15
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -15
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    15
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -15
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    15
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -15
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    15
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.5
+   set Dim6 2    -15
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.5
+   set Dim6 2    0.2
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -0.2
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5 
+   set Dim6 2    0.2
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -0.2
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.5
+   set Dim6 2    0.2
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -0.2
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    0.2
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -0.2
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.5
+   set Dim6 2    0.2
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -0.2
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    0.2
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -0.2
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.5
+   set Dim6 2    0.5
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -0.5
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    0.5
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -0.5
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.5
+   set Dim6 2    0.5
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -0.5
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    0.5
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -0.5
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.5
+   set Dim6 2    0.5
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -0.5
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    0.5
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -0.5
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.5
+   set Dim6 2    15
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    15
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -15
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -15
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.5
+   set Dim6 2    15
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -15
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    15
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -15
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.5
+   set Dim6 2    15
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -15
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    15
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.5
+   set Dim6 2    -15
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.7
+   set Dim6 2    0.2
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -0.2
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7 
+   set Dim6 2    0.2
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -0.2
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.7
+   set Dim6 2    0.2
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -0.2
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    0.2
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -0.2
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.7
+   set Dim6 2    0.2
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -0.2
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    0.2
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -0.2
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.7
+   set Dim6 2    0.5
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -0.5
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    0.5
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -0.5
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.7
+   set Dim6 2    0.5
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -0.5
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    0.5
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -0.5
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.7
+   set Dim6 2    0.5
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -0.5
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    0.5
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -0.5
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.7
+   set Dim6 2    15
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    15
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -15
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -15
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.7
+   set Dim6 2    15
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -15
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    15
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -15
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  0.7
+   set Dim6 2    15
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -15
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    15
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  0.7
+   set Dim6 2    -15
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    0.2
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -0.2
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7 
+   set Dim6 2    0.2
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -0.2
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    0.2
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -0.2
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    0.2
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -0.2
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    0.2
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -0.2
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    0.2
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -0.2
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    0.5
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -0.5
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    0.5
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -0.5
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    0.5
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -0.5
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    0.5
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -0.5
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    0.5
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -0.5
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    0.5
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -0.5
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    15
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    15
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -15
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -15
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    15
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -15
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    15
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -15
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    15
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -15
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    15
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1  -0.7
+   set Dim6 2    -15
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   1
+   set Dim6 2    0.2
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -0.2
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1 
+   set Dim6 2    0.2
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -0.2
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   1
+   set Dim6 2    0.2
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -0.2
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    0.2
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -0.2
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   1
+   set Dim6 2    0.2
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -0.2
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    0.2
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -0.2
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   1
+   set Dim6 2    0.5
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -0.5
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    0.5
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -0.5
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   1
+   set Dim6 2    0.5
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -0.5
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    0.5
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -0.5
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   1
+   set Dim6 2    0.5
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -0.5
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    0.5
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -0.5
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   1
+   set Dim6 2    15
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    15
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -15
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -15
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   1
+   set Dim6 2    15
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -15
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    15
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -15
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   1
+   set Dim6 2    15
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -15
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    15
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   1
+   set Dim6 2    -15
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   -1
+   set Dim6 2    0.2
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -0.2
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1 
+   set Dim6 2    0.2
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -0.2
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   -1
+   set Dim6 2    0.2
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -0.2
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    0.2
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -0.2
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   -1
+   set Dim6 2    0.2
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -0.2
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    0.2
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -0.2
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   -1
+   set Dim6 2    0.5
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -0.5
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    0.5
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -0.5
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   -1
+   set Dim6 2    0.5
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -0.5
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    0.5
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -0.5
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   -1
+   set Dim6 2    0.5
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -0.5
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    0.5
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -0.5
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   -1
+   set Dim6 2    15
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    15
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -15
+   set Dim6 3    2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -15
+   set Dim6 3    -2.5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   -1
+   set Dim6 2    15
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -15
+   set Dim6 3    5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    15
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -15
+   set Dim6 3    -5
+   set Dim6 4 0 
+   set Dim6 5   0
+
+launch
+   set Dim6 1   -1
+   set Dim6 2    15
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -15
+   set Dim6 3    15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    15
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0
+launch
+   set Dim6 1   -1
+   set Dim6 2    -15
+   set Dim6 3    -15
+   set Dim6 4 0 
+   set Dim6 5   0

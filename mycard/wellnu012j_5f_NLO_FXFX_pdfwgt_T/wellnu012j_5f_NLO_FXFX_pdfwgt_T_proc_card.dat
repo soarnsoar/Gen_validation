@@ -9,11 +9,11 @@ define ell- = e- mu- ta-
 
 generate p p > ell+ vl $$ t t~ h [QCD] @0
 add process p p > ell+ vl j $$ t t~ h [QCD] @1
+add process p p > ell+ vl j j $$ t t~ h [QCD] @2
 
+add process p p > ell- vl~ $$ t t~ h [QCD] @3
+add process p p > ell- vl~ j $$ t t~ h [QCD] @4
+add process p p > ell- vl~ j j $$ t t~ h [QCD] @5
 
-add process p p > ell- vl~ $$ t t~ h [QCD] @2
-add process p p > ell- vl~ j $$ t t~ h [QCD] @3
-
-
-output wellnu01j_5f_NLO_FXFX -nojpeg
+output wellnu012j_5f_NLO_FXFX_pdfwgt_T -nojpeg
 

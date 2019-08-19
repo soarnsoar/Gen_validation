@@ -1,4 +1,4 @@
-#**********************************************************************
+#*********************************************************************
 #                       MadGraph5_aMC@NLO                            *
 #                                                                    *
 #                     run_card.dat MadEvent                          *
@@ -48,37 +48,41 @@
 #*********************************************************************
 # PDF CHOICE: this automatically fixes also alpha_s and its evol.    *
 #*********************************************************************
- lhapdf = pdlabel ! PDF set
+'lhapdf'    = pdlabel     ! PDF set
  $DEFAULT_PDF_SETS = lhaid
- $DEFAULT_PDF_MEMBERS = reweight_PDF
+ $DEFAULT_PDF_MEMBERS = reweight_PDF     ! if pdlabel=lhapdf, this is the lhapdf number 
+
 #*********************************************************************
 # Renormalization and factorization scales                           *
 #*********************************************************************
-  False        = fixed_ren_scale  ! if .true. use fixed ren scale
-  False        = fixed_fac_scale  ! if .true. use fixed fac scale
-  91.1880  = scale            ! fixed ren scale
-  91.1880  = dsqrt_q2fact1    ! fixed fact scale for pdf1
-  91.1880  = dsqrt_q2fact2    ! fixed fact scale for pdf2
-  -1 = dynamical_scale_choice ! Choose one of the preselected dynamical choices
-  1.0  = scalefact        ! scale factor for event-by-event scales
-#*********************************************************************
-# Type and output format
-#*********************************************************************
-  -1.0 = time_of_flight ! threshold (in mm) below which the invariant livetime is not written (-1 means not written)
-  3.0 = lhe_version       ! Change the way clustering information pass to shower.
-  True = clusinfo         ! include clustering tag in output
-  average =  event_norm       ! average/sum. Normalization of the weight in the LHEF
+ F        = fixed_ren_scale  ! if .true. use fixed ren scale
+ F        = fixed_fac_scale  ! if .true. use fixed fac scale
+ 91.1880  = scale            ! fixed ren scale
+ 91.1880  = dsqrt_q2fact1    ! fixed fact scale for pdf1
+ 91.1880  = dsqrt_q2fact2    ! fixed fact scale for pdf2
+ 1        = scalefact        ! scale factor for event-by-event scales
 #*********************************************************************
 # Matching - Warning! ickkw > 1 is still beta
 #*********************************************************************
-  1        = ickkw            ! 0 no matching, 1 MLM, 2 CKKW matching
-  1        = alpsfact         ! scale factor for QCD emission vx
-  False    = chcluster        ! cluster only according to channel diag
-  True     = auto_ptj_mjj     ! Automatic setting of ptj and mjj
-                              ! (turn off for VBF and single top processes)
-  False     = pdfwgt           ! for ickkw=1, perform pdf reweighting
-  5        = asrwgtflavor     ! highest quark flavor for a_s reweight
-  10.0     = xqcut            ! minimum kt jet measure between partons
+ 1        = ickkw            ! 0 no matching, 1 MLM, 2 CKKW matching
+ 1        = highestmult      ! for ickkw=2, highest mult group
+ 1        = ktscheme         ! for ickkw=1, 1 Durham kT, 2 Pythia pTE
+ 1        = alpsfact         ! scale factor for QCD emission vx
+ F        = chcluster        ! cluster only according to channel diag
+T = pdfwgt
+ 5        = asrwgtflavor     ! highest quark flavor for a_s reweight
+ T        = clusinfo         ! include clustering tag in output
+ 3.0      = lhe_version       ! Change the way clustering information pass to shower.        
+#*********************************************************************
+#**********************************************************
+#
+#**********************************************************
+# Automatic ptj and mjj cuts if xqcut > 0
+# (turn off for VBF and single top processes)
+#**********************************************************
+   F  = auto_ptj_mjj  ! Automatic setting of ptj and mjj
+#**********************************************************
+#                                                                    
 #**********************************
 # BW cutoff (M+/-bwcutoff*Gamma)
 #**********************************
@@ -87,7 +91,7 @@
 # Apply pt/E/eta/dr/mij cuts on decay products or not
 # (note that etmiss/ptll/ptheavy/ht/sorted cuts always apply)
 #**********************************************************
-   False  = cut_decays    ! Cut decay products 
+   F  = cut_decays    ! Cut decay products 
 #*************************************************************
 # Number of helicities to sum per event (0 = all helicities)
 # 0 gives more stable result, but longer run time (needed for
@@ -95,12 +99,6 @@
 # Use >=2 if most helicities contribute, e.g. pure QCD.
 #*************************************************************
    0  = nhel          ! Number of helicities used per event
-#*********************************************************************
-# Generation bias, check the wiki page below for more information:   *
-#  'cp3.irmp.ucl.ac.be/projects/madgraph/wiki/LOEventGenerationBias' *
-#*********************************************************************
-  None = bias_module  ! Bias type of bias, [None, ptj_bias, -custom_folder-]
-  {} = bias_parameters ! Specifies the parameters of the module.
 #*******************                                                 
 # Standard Cuts
 #*******************                                                 
@@ -108,9 +106,9 @@
 #*********************************************************************
 # Minimum and maximum pt's (for max, -1 means no cut)                *
 #*********************************************************************
-  0.01  = ptj       ! minimum pt for the jets 
+ 0.01 = ptj       ! minimum pt for the jets 
   0  = ptb       ! minimum pt for the b 
-  0  = pta       ! minimum pt for the photons 
+ 10  = pta       ! minimum pt for the photons 
   0  = ptl       ! minimum pt for the charged leptons 
   0  = misset    ! minimum missing Et (sum of neutrino's momenta)
   0  = ptheavy   ! minimum pt for one heavy final state
@@ -174,7 +172,7 @@
  0   = mmjj    ! min invariant mass of a jet pair 
  0   = mmbb    ! min invariant mass of a b pair 
  0   = mmaa    ! min invariant mass of gamma gamma pair
-50   = mmll    ! min invariant mass of l+l- (same flavour) lepton pair
+ 0   = mmll    ! min invariant mass of l+l- (same flavour) lepton pair
  -1  = mmjjmax ! max invariant mass of a jet pair
  -1  = mmbbmax ! max invariant mass of a b pair
  -1  = mmaamax ! max invariant mass of gamma gamma pair
@@ -241,25 +239,26 @@
  0.4 = R0gamma ! Radius of isolation code
  1.0 = xn ! n parameter of eq.(3.4) in hep-ph/9801442
  1.0 = epsgamma ! epsilon_gamma parameter of eq.(3.4) in hep-ph/9801442
- True = isoEM ! isolate photons from EM energy (photons and leptons)
+ .true. = isoEM ! isolate photons from EM energy (photons and leptons)
 #*********************************************************************
 # WBF cuts                                                           *
 #*********************************************************************
  0   = xetamin ! minimum rapidity for two jets in the WBF case  
  0   = deltaeta ! minimum rapidity for two jets in the WBF case 
-#***********************************************************************
-# Turn on either the ktdurham or ptlund cut to activate                *
-# CKKW(L) merging with Pythia8 [arXiv:1410.3012, arXiv:1109.4829]      *
-#***********************************************************************
- -1.0  =  ktdurham
- 0.4   =  dparameter
- -1.0  =  ptlund
- 1, 2, 3, 4, 5, 6, 21  =  pdgs_for_merging_cut ! PDGs for two cuts above  
+#*********************************************************************
+# KT DURHAM CUT                                                      *
+#*********************************************************************
+ -1    =  ktdurham        
+ 0.4  =  dparameter 
 #*********************************************************************
 # maximal pdg code for quark to be considered as a light jet         *
 # (otherwise b cuts are applied)                                     *
 #*********************************************************************
  5 = maxjetflavor    ! Maximum jet pdg code
+#*********************************************************************
+# Jet measure cuts                                                   *
+#*********************************************************************
+ 10   = xqcut   ! minimum kt jet measure between partons
 #*********************************************************************
 #
 #*********************************************************************
@@ -268,6 +267,6 @@
 #          meaningful ONLY if plotted taking matchscale              *
 #          reweighting into account!                                 *
 #*********************************************************************
-   True  = use_syst      ! Enable systematics studies
+   T  = use_syst      ! Enable systematics studies
 #
 #**************************************

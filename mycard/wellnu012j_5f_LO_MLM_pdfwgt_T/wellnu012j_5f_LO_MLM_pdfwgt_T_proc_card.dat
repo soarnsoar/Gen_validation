@@ -14,5 +14,5 @@ add process p p > ell- vl~ $$ t t~ h @3
 add process p p > ell- vl~ j $$ t t~ h @4
 add process p p > ell- vl~ j j $$ t t~ h @5
 
-output wellnu012j_5f_LO_MLM -nojpeg
+output wellnu012j_5f_LO_MLM_pdfwgt_T -nojpeg
 
