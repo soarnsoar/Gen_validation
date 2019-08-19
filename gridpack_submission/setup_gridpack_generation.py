@@ -161,7 +161,7 @@ class MG_gridpackGEN():
         if 'cms1' in self.HOSTNAME or 'cms2' in self.HOSTNAME:
             script  = 'run_interactive_gridpack_generation.sh'
             execute = 'nohup'
-            command=execute+' ./'+script+' '+process_name+' '+self.card_dir.split('/')[-1]+'/'+process_name+' > '+process_name+'.debug 2>&1 &'
+            command=execute+' ./'+script+' '+process_name+' '+self.card_dir.split('/')[-1]+'/'+process_name+' > '+process_name+'.debug 2>&1 '
 
         ##(2) make submission script
         #contents : 
