@@ -35,6 +35,8 @@ class MG_gridpackGEN():
 
 
                 if 'wget --no-check-certificate https://cms-project-generators.web.cern.ch/cms-project-generators/$model' in line:
+                    f_new.write('echo $model\n')
+                    f_new.write('echo "$PWD"\n')
                     f_new.write('wget http://147.47.242.72/USER/jhchoi/generator_group/mg_model/$model\n')
                 f_new.write(line)
             f_origin.close()
