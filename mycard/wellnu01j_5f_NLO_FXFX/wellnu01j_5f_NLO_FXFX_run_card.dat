@@ -56,7 +56,9 @@ average = event_norm ! Normalize events to sum or average to the X sect.
 #***********************************************************************
 'lhapdf'    = pdlabel     ! PDF set
  $DEFAULT_PDF_SETS = lhaid
- $DEFAULT_PDF_MEMBERS = reweight_PDF     ! if pdlabel=lhapdf, this is the lhapdf number 
+ $DEFAULT_PDF_MEMBERS = reweight_PDF     ! if pdlabel=lhapdf, this is the lhapdf number
+ True = store_rwgt_info
+ 
 #***********************************************************************
 # Include the NLO Monte Carlo subtr. terms for the following parton    *
 # shower (HERWIG6 | HERWIGPP | PYTHIA6Q | PYTHIA6PT | PYTHIA8)         *
