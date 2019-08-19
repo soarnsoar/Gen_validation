@@ -82,6 +82,9 @@ def check_pdfwgt_TrueFalse(proc):
         return
     elif 'pdfwgt_T' in proc:
         return
+    elif 'nlo' in proc.lower() or 'fxfx' in proc.lower():
+        return 
+    
     else:
         
         orig_dir=os.getcwd()
