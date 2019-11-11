@@ -1,4 +1,4 @@
-EXT="tar.xz"
+EXT="tar*"
 ARR_TAR=( $(ls *".${EXT}") )
 
 
