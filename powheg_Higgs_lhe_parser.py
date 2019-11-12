@@ -227,13 +227,18 @@ if __name__=="__main__" :
         ch=-1 ##channel, 0=hadronic 1=semilep 2=leptonic
         if ("lnuqq") in mydir.lower() : ch=1
         elif ("2l2nu") in mydir.lower() : ch=2
-        
+        else :
+            ch=2
+            print "[!]Use default channel leptonic"
         hmass=MH_set['hmass']
         MH=MH_cal["MH"]
         hwidth=MH_set['hwidth']
         dMH=MH_cal["dMH"]
         sigma=sqrt( hwidth**2 + dMH**2     )
-        
+        print "[hmass]",hmass
+        print "[MH cal]",MH
+        print "[hwidth]",hwidth
+        print "[dMH cal]",dMH
         if abs(MH-hmass) > 2*sigma:
             print "\n"
             print "------------"
