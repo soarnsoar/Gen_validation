@@ -125,16 +125,27 @@ class parser:
          
 
         f.close()
-def check_MH(my_event):
+def check_M(my_event,_pid):
     MH_list=[]
     for ptl in my_event.PARTICLE_LIST:
         pid=ptl.IDUP
         #print "idx="+str(evt.PARTICLE_LIST.index(ptl))+"pid="+str(ptl.IDUP)+" status="+str(ptl.ISTUP)
-        if pid == 25 : ##Higgs boson
+        if pid == _pid : ##Higgs boson
             #print "HIGGS"
             MH_list.append(ptl.PUP5)
             
-    return MH_list        
+    return MH_list
+
+def check_pxpypzee(my_event,_pid):
+    
+    for ptl in my_event.PARTICLE_LIST:
+        pid=ptl.IDUP
+        #print "idx="+str(evt.PARTICLE_LIST.index(ptl))+"pid="+str(ptl.IDUP)+" status="+str(ptl.ISTUP)
+        if pid == _pid : 
+            #MH_list.append(ptl.PUP5)
+            return ptl.PUP1,ptl.PUP2,ptl.PUP3,ptl.PUP4
+
+
 def check_HWW_nlep(my_file):
     analyzer=parser(my_file)
     analyzer.parse_file()
@@ -155,22 +166,48 @@ def check_HWW_nlep(my_file):
     #     'nparton':n_fparton,\
     # }
     return n_flep
-def cal_MH(my_file):
+def cal_M(my_file,pid):
     analyzer=parser(my_file)
     analyzer.parse_file()
     events = analyzer.EVENT_LIST
-    MH_list=[]
+    M_list=[]
     for evt in events:
         #print "------"+str(events.index(evt))+"-----"                                                                                                                                       
         #for ptl in evt.PARTICLE_LIST:
         #print "idx="+str(evt.PARTICLE_LIST.index(ptl))+"pid="+str(ptl.IDUP)+" status="+str(ptl.ISTUP)                                                                                     
-        MH_list+=check_MH(evt)
+        M=check_M(evt,pid)
+        M_list+=M
 
     #print MH_list
     #print "<MH>="+str(numpy.mean(MH_list))
     #print "d<MH>="+str(numpy.std(MH_list)/math.sqrt(len((MH_list))))
-    dic={'MH':numpy.mean(MH_list), \
-         'dMH':numpy.std(MH_list)/sqrt(len((MH_list))) \
+    dic={'M':numpy.mean(M_list), \
+         'dM':numpy.std(M_list)/sqrt(len((M_list))) \
+     }
+    
+    
+    return dic
+
+
+def cal_MWW(my_file):
+    analyzer=parser(my_file)
+    analyzer.parse_file()
+    events = analyzer.EVENT_LIST
+    M_list=[]
+    for evt in events:
+        #print "------"+str(events.index(evt))+"-----"                                                                                                                                       
+        #for ptl in evt.PARTICLE_LIST:
+        #print "idx="+str(evt.PARTICLE_LIST.index(ptl))+"pid="+str(ptl.IDUP)+" status="+str(ptl.ISTUP)                                                                                     
+        Wp_px,Wp_py,Wp_pz,Wp_ee=check_pxpypzee(evt,24)
+        Wm_px,Wm_py,Wm_pz,Wm_ee=check_pxpypzee(evt,-24)
+        M=sqrt( (Wp_ee+Wm_ee)**2 - (Wp_px+Wm_px)**2 - (Wp_py+Wm_py)**2 - (Wp_pz+Wm_pz)**2      )
+        M_list.append(M)
+
+    #print MH_list
+    #print "<MH>="+str(numpy.mean(MH_list))
+    #print "d<MH>="+str(numpy.std(MH_list)/math.sqrt(len((MH_list))))
+    dic={'M':numpy.mean(M_list), \
+         'dM':numpy.std(M_list)/sqrt(len((M_list))) \
      }
     
     
@@ -208,7 +245,7 @@ def get_MH_powheg_card(cardpath):
 
 
 
-if __name__=="__main__" :
+def test():
     dirlist=glob.glob("test_*")
     #print str(dirlist)
     for mydir in dirlist:
@@ -222,16 +259,16 @@ if __name__=="__main__" :
         MH_set=get_MH_powheg_card(mydir+"/powheg.input")
         #print_MH(mydir+"/cmsgrid_final.lhe")
 
-        MH_cal=cal_MH(mydir+"/cmsgrid_final.lhe")
+        MH_cal=cal_M(mydir+"/cmsgrid_final.lhe",25)
         nlep=check_HWW_nlep(mydir+"/cmsgrid_final.lhe")
         ch=-1 ##channel, 0=hadronic 1=semilep 2=leptonic
         if ("lnuqq") in mydir.lower() : ch=1
         elif ("2l2nu") in mydir.lower() : ch=2
         
         hmass=MH_set['hmass']
-        MH=MH_cal["MH"]
+        MH=MH_cal["M"]
         hwidth=MH_set['hwidth']
-        dMH=MH_cal["dMH"]
+        dMH=MH_cal["dM"]
         sigma=sqrt( hwidth**2 + dMH**2     )
         
         if abs(MH-hmass) > 2*sigma:
@@ -249,3 +286,6 @@ if __name__=="__main__" :
             print "nlep in 1st event="+str(nlep)
             print "nlep from samplename="+str(ch)
     #print_HM("cmsgrid_final.lhe")
+if __name__=="__main__" :
+    MWW_cal=cal_MWW("cmsgrid_final.lhe")
+    print MWW_cal['M'],MWW_cal['dM']
